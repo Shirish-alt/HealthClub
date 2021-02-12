@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:scrollbars="horizontal"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:stretchColumns="1,2,3,4,5,6,7,8"
+            android:layout_height="match_parent"
+
+            android:layout_margin="8dp"
+            tools:context=".Fragments.TableFragement">
+
+            <TableRow android:layout_width="0dp"
+                android:padding="5dp"
+                android:background="#03A9F4">
+                <TextView
+                    android:text="weight"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:textColor="#fff"
+                    android:padding="2dp"
+                    android:gravity="center"
+
+                    android:layout_column="1"
+                    />
+                <TextView
+                    android:text="vfat"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:padding="2dp"
+                    android:gravity="center"
+
+                    android:textColor="#fff"
+                    android:layout_column="1"
+                    />
+                <TextView
+                    android:text="tsf"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:padding="2dp"
+                    android:gravity="center"
+
+                    android:textColor="#fff"
+                    android:layout_column="1"
+                    />
+                <TextView
+                    android:text="totalfatpercent"
+                    android:textStyle="bold"
+                    android:padding="2dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="#fff"
+                    android:layout_column="1"
+                    />
+                <TextView
+                    android:text="bmi"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:padding="2dp"
+                    android:textColor="#fff"
+                    android:gravity="center"
+                    android:layout_column="1"
+                    />
+                <TextView
+                    android:text="bmr"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:padding="2dp"
+                    android:gravity="center"
+                    android:textColor="#fff"
+                    android:layout_column="1"
+                    />
+                <TextView
+                    android:text="musclepercent"
+                    android:textStyle="bold"
+                    android:padding="2dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="#fff"
+                    android:layout_column="1"
+                    />
+                <TextView
+                    android:text="type"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:padding="2dp"
+                    android:gravity="center"
+                    android:textColor="#fff"
+                    android:layout_column="1"
+                    />
+
+            </TableRow>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/res_table"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                />
+
+        </TableLayout>
+
+    </HorizontalScrollView>
+</ScrollView>
+
