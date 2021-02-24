@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -28,10 +29,15 @@ import com.example.healthclub_app.R;
 import com.example.healthclub_app.Urls;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.AxisBase;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.formatter.ValueFormatter;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 import org.json.JSONArray;
@@ -46,10 +52,11 @@ import java.util.Map;
 public class GraphFragement extends Fragment {
 
  String  access_token,type,bmi,totalfatpercent,musclepercent;
- ArrayList<PieEntry> FatInfo,MusleInfo;
+ ArrayList<BarEntry> FatInfo,MusleInfo;
  ArrayList<BarEntry> BmiInfo;
- PieChart musle_piechart,fat_piechart;
- BarChart bmi_barChart;
+ ArrayList<String> bmi_lables;
+ BarChart  bmi_barChart, musle_piechart,fat_piechart;
+
  RelativeLayout login,chart;
  TextView login_link;
 
@@ -65,8 +72,8 @@ public class GraphFragement extends Fragment {
         View view= inflater.inflate(R.layout.fragment_graph_fragement, container, false);
 
         bmi_barChart=(BarChart) view.findViewById(R.id.Bmi_piechart);
-        musle_piechart=(PieChart) view.findViewById(R.id.musle_piechart);
-        fat_piechart=(PieChart) view.findViewById(R.id.fat_piechart);
+        musle_piechart=(BarChart) view.findViewById(R.id.musle_piechart);
+        fat_piechart=(BarChart) view.findViewById(R.id.fat_piechart);
         login=view.findViewById(R.id.rel_login);
         login_link=view.findViewById(R.id.login_link);
 
@@ -82,8 +89,10 @@ public class GraphFragement extends Fragment {
 
         //ArrayList.....................................................
      BmiInfo =new ArrayList<BarEntry>();
-        FatInfo =new ArrayList<PieEntry>();
-        MusleInfo =new ArrayList<PieEntry>();
+        FatInfo =new ArrayList<BarEntry>();
+        MusleInfo =new ArrayList<BarEntry>();
+
+        bmi_lables=new ArrayList<>();
 
 
 
@@ -125,58 +134,58 @@ public class GraphFragement extends Fragment {
                                  type=object.getString("type");
 
 
+
+
+
 //Bmi Info...
-//                                BmiInfo.add(new PieEntry(Float.parseFloat(bmi),type));
-//                                PieDataSet dataSet=new PieDataSet(BmiInfo,"BMI Pie Chart");
-//                                dataSet.setColors(ColorTemplate.COLORFUL_COLORS);
-//                                dataSet.setValueTextColor(Color.BLACK);
-//                                dataSet.setValueTextSize(15f);
-//
-//                                PieData pieData=new PieData(dataSet);
-//                                bmi_pieChart.invalidate();
-//                                bmi_pieChart.setData(pieData);
-//
-//                                bmi_pieChart.setCenterText("Weekly Report");
-//                                bmi_pieChart.setCenterTextSize(17f);
-//                                bmi_pieChart.setCenterTextColor(Color.BLACK);
-//                                bmi_pieChart.animate();
+                                BmiInfo.add(new BarEntry(i,Float.parseFloat(bmi)));
+                                BarDataSet dataSet=new BarDataSet(BmiInfo,"BMI");
+                                dataSet.setColors(ColorTemplate.COLORFUL_COLORS);
 
+                                dataSet.setValueTextColor(Color.BLACK);
+                                dataSet.setValueTextSize(15f);
 
+                                BarData barData=new BarData(dataSet);
+                                bmi_barChart.setFitBars(true);
+                                bmi_barChart.setData(barData);
 
+                                bmi_barChart.getDescription().setText("Bar Report");
+                                bmi_barChart.animateY(1000);
 
 //Musle Info
-                                MusleInfo.add(new PieEntry(Float.parseFloat(musclepercent),type));
-                                PieDataSet dataSet1=new PieDataSet(MusleInfo,"Musle Pie Chart");
-                                dataSet1.setColors(ColorTemplate.COLORFUL_COLORS);
-                                dataSet1.setValueTextColor(Color.BLACK);
-                                dataSet1.setValueTextSize(15f);
 
-                                PieData pieData1=new PieData(dataSet1);
-                                musle_piechart.invalidate();
-                                musle_piechart.setData(pieData1);
 
-                                musle_piechart.setCenterText("Weekly Report");
-                                musle_piechart.setCenterTextSize(17f);
-                                musle_piechart.setCenterTextColor(Color.BLACK);
-                                musle_piechart.animate();
+                                MusleInfo.add(new BarEntry(i,Float.parseFloat(musclepercent)));
+                                BarDataSet dataSet1=new BarDataSet(MusleInfo,"Muscle");
+                                dataSet.setColors(Color.BLACK);
+                                dataSet.setValueTextColor(Color.BLACK);
+                                dataSet.setValueTextSize(15f);
+
+                                BarData barData1=new BarData(dataSet1);
+                                musle_piechart.setFitBars(true);
+                                musle_piechart.setData(barData1);
+                                musle_piechart.getDescription().setText("Bar Report");
+                                musle_piechart.animateY(3000);
+
 
  //Fat Into
 
-                                FatInfo.add(new PieEntry(Float.parseFloat(totalfatpercent),type));
-                                PieDataSet dataSet2=new PieDataSet(FatInfo,"Fat Pie Chart");
-                                dataSet2.setColors(ColorTemplate.COLORFUL_COLORS);
-                                dataSet2.setValueTextColor(Color.BLACK);
-                                dataSet2.setValueTextSize(15f);
+                                FatInfo.add(new BarEntry(i,Float.parseFloat(totalfatpercent)));
+                                BarDataSet dataSet2=new BarDataSet(FatInfo,"Fat");
+                                dataSet.setColors(Color.BLUE);
+                                dataSet.setValueTextColor(Color.BLACK);
+                                dataSet.setValueTextSize(15f);
 
-                                PieData pieData2=new PieData(dataSet2);
-                                fat_piechart.invalidate();
-                                fat_piechart.setData(pieData2);
+                                BarData barData2=new BarData(dataSet2);
+                                fat_piechart.setFitBars(true);
+                                fat_piechart.setData(barData2);
+                                fat_piechart.getDescription().setText("Bar Report");
+                                fat_piechart.animateY(4000);
 
-                                fat_piechart.setCenterText("Weekly Report");
-                                fat_piechart.setCenterTextSize(17f);
-                                fat_piechart.setCenterTextColor(Color.BLACK);
-                                fat_piechart.animate();
-                                }
+
+
+
+                            }
 
 
 

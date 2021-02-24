@@ -73,13 +73,14 @@
         android:layout_below="@id/bt"
         android:elevation="10dp"
         android:id="@+id/card_bmi"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
 
     <com.github.mikephil.charting.charts.BarChart
         android:layout_width="match_parent"
         android:id="@+id/Bmi_piechart"
         android:layout_height="320dp"/>
+
     </androidx.cardview.widget.CardView>
 
         <TextView
@@ -101,7 +102,7 @@
             android:layout_below="@id/mt"
             android:id="@+id/card_musle"
             android:layout_height="wrap_content">
-            <com.github.mikephil.charting.charts.PieChart
+            <com.github.mikephil.charting.charts.BarChart
                 android:layout_width="match_parent"
                 android:id="@+id/musle_piechart"
 
@@ -132,7 +133,7 @@
             android:layout_height="wrap_content">
 
 
-            <com.github.mikephil.charting.charts.PieChart
+            <com.github.mikephil.charting.charts.BarChart
                 android:layout_width="match_parent"
                 android:id="@+id/fat_piechart"
 

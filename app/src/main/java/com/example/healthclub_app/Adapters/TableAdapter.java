@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -43,6 +44,35 @@ public class TableAdapter extends RecyclerView.Adapter<TableAdapter.TableHolder>
         holder.bmr.setText(model.getBmr());
         holder.musclepercent.setText(model.getMusclepercent());
         holder.type.setText(model.getType());
+
+        float vfat= Float.parseFloat(model.getVfat());
+        float total= Float.parseFloat(model.getTotalfatpercent());
+        float bmi= Float.parseFloat(model.getBmi());
+
+        if(vfat<5){
+            holder.vfat.setBackgroundResource(R.color.red);
+        }else {
+            holder.vfat.setBackgroundResource(R.color.green);
+        }
+        if(total<17){
+            holder.totalfatpercent.setBackgroundResource(R.color.red);
+        }else {
+            holder.totalfatpercent.setBackgroundResource(R.color.green);
+        }
+        if(bmi<6){
+            holder.bmi.setBackgroundResource(R.color.red);
+        }else {
+            holder.bmi.setBackgroundResource(R.color.green);
+        }
+
+
+
+
+        View v = new View(context);
+        v.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, 1));
+
+        View v1 = new View(context);
+        v1.setLayoutParams(new TableRow.LayoutParams(1, TableRow.LayoutParams.MATCH_PARENT));
 
     }
 

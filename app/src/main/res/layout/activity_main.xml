@@ -42,7 +42,7 @@
          android:textColor="#03A9F4"
          android:textSize="20sp"
          android:textStyle="bold"
-         android:text="Promo Videos More"
+         android:text="Promo Videos"
          ></TextView>
 
          <androidx.recyclerview.widget.RecyclerView

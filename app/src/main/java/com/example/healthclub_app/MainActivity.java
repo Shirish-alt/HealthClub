@@ -6,14 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -29,7 +26,7 @@ import com.example.healthclub_app.Activities.Diet;
 import com.example.healthclub_app.Activities.LoginScreen;
 import com.example.healthclub_app.Activities.MoreVideosAndPosts;
 import com.example.healthclub_app.Activities.Progress;
-import com.example.healthclub_app.Adapters.PostAdapter;
+import com.example.healthclub_app.Adapters.HomePostAdapter;
 import com.example.healthclub_app.Adapters.PromoVidAdapter;
 import com.example.healthclub_app.Models.PostModel;
 import com.example.healthclub_app.Models.PromoVidModel;
@@ -51,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<PromoVidModel> promoVidModels,promoVidModels1;
     ArrayList<PostModel> postModelArrayList,postModelArrayList1;
     PromoVidAdapter promoVidAdapter,promoVidAdapter1;
-    PostAdapter postAdapter;
+    HomePostAdapter homePostAdapter;
     TextView promo_more,post_more;
 
     String vid_id,vid_title,post_title,post_url,post_desc;
@@ -251,8 +248,8 @@ public class MainActivity extends AppCompatActivity {
 
                             //postAdapter
 
-                            postAdapter = new PostAdapter(MainActivity.this,postModelArrayList);
-                            res_posts.setAdapter(postAdapter);
+                            homePostAdapter = new HomePostAdapter(MainActivity.this,postModelArrayList);
+                            res_posts.setAdapter(homePostAdapter);
 
 
                             //VideoAdapter

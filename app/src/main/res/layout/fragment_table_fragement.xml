@@ -21,7 +21,7 @@
                 android:padding="5dp"
                 android:background="#03A9F4">
                 <TextView
-                    android:text="weight"
+                    android:text="Weight"
                     android:textStyle="bold"
                     android:layout_weight="1"
                     android:textColor="#fff"
@@ -31,7 +31,7 @@
                     android:layout_column="1"
                     />
                 <TextView
-                    android:text="vfat"
+                    android:text="VFAT"
                     android:textStyle="bold"
                     android:layout_weight="1"
                     android:padding="2dp"
@@ -41,7 +41,7 @@
                     android:layout_column="1"
                     />
                 <TextView
-                    android:text="tsf"
+                    android:text="TSF"
                     android:textStyle="bold"
                     android:layout_weight="1"
                     android:padding="2dp"
@@ -51,7 +51,7 @@
                     android:layout_column="1"
                     />
                 <TextView
-                    android:text="totalfatpercent"
+                    android:text="Totalfat"
                     android:textStyle="bold"
                     android:padding="2dp"
                     android:layout_weight="1"
@@ -60,7 +60,7 @@
                     android:layout_column="1"
                     />
                 <TextView
-                    android:text="bmi"
+                    android:text="BMI"
                     android:textStyle="bold"
                     android:layout_weight="1"
                     android:padding="2dp"
@@ -69,7 +69,7 @@
                     android:layout_column="1"
                     />
                 <TextView
-                    android:text="bmr"
+                    android:text="BMR"
                     android:textStyle="bold"
                     android:layout_weight="1"
                     android:padding="2dp"
@@ -78,7 +78,7 @@
                     android:layout_column="1"
                     />
                 <TextView
-                    android:text="musclepercent"
+                    android:text="Muscle"
                     android:textStyle="bold"
                     android:padding="2dp"
                     android:layout_weight="1"
@@ -87,7 +87,7 @@
                     android:layout_column="1"
                     />
                 <TextView
-                    android:text="type"
+                    android:text="Type"
                     android:textStyle="bold"
                     android:layout_weight="1"
                     android:padding="2dp"

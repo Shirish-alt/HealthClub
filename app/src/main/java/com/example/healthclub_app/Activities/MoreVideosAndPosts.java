@@ -15,9 +15,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.healthclub_app.Adapters.MorePostAdapter;
 import com.example.healthclub_app.Adapters.MoreVideosAdapter;
-import com.example.healthclub_app.Adapters.PostAdapter;
-import com.example.healthclub_app.Adapters.PromoVidAdapter;
+import com.example.healthclub_app.Adapters.HomePostAdapter;
 import com.example.healthclub_app.MainActivity;
 import com.example.healthclub_app.Models.PostModel;
 import com.example.healthclub_app.Models.PromoVidModel;
@@ -35,7 +35,7 @@ public class MoreVideosAndPosts extends AppCompatActivity {
     String moredata=" ";
     String vid_id,vid_title,post_title,post_url,post_desc;
     MoreVideosAdapter promoVidAdapter,promoVidAdapter1;
-    PostAdapter postAdapter;
+    MorePostAdapter homePostAdapter;
     ArrayList<PromoVidModel> promoVidModels,promoVidModels1;
     ArrayList<PostModel> postModelArrayList,postModelArrayList1;
 
@@ -158,8 +158,8 @@ public class MoreVideosAndPosts extends AppCompatActivity {
 
                             //postAdapter
                     if(moredata.contains("PostMore")){
-                        postAdapter = new PostAdapter(MoreVideosAndPosts.this,postModelArrayList);
-                        res_more_data.setAdapter(postAdapter);
+                        homePostAdapter = new MorePostAdapter(MoreVideosAndPosts.this,postModelArrayList);
+                        res_more_data.setAdapter(homePostAdapter);
 
                     }else if(moredata.contains("PromoMore")){
                         //VideoAdapter

@@ -19,11 +19,11 @@ import com.example.healthclub_app.R;
 
 import java.util.List;
 
-public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostHolder> {
+public class HomePostAdapter extends RecyclerView.Adapter<HomePostAdapter.PostHolder> {
     Context context;
     List<PostModel> postModelList;
 
-    public PostAdapter(Context context, List<PostModel> postModelList) {
+    public HomePostAdapter(Context context, List<PostModel> postModelList) {
         this.context = context;
         this.postModelList = postModelList;
     }
@@ -60,7 +60,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostHolder> {
 
     @Override
     public int getItemCount() {
-        return postModelList.size();
+        return 3;
     }
 
     public class  PostHolder extends  RecyclerView.ViewHolder{
