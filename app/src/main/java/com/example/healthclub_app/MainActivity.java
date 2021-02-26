@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -50,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
     PromoVidAdapter promoVidAdapter,promoVidAdapter1;
     HomePostAdapter homePostAdapter;
     TextView promo_more,post_more;
+    SessionManagment sessionManagment;
 
     String vid_id,vid_title,post_title,post_url,post_desc;
 
@@ -112,6 +115,24 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        sessionManagment=new SessionManagment(MainActivity.this);
+        String token=sessionManagment.getSession();
+
+        Menu sidemenu=navigationView.getMenu();
+        if(token==null){
+            MenuItem login_menu=sidemenu.findItem(R.id.logout);
+            login_menu.setVisible(false);
+        }else {
+            MenuItem login_menu=sidemenu.findItem(R.id.login);
+            login_menu.setVisible(false);
+        }
+
+
+
+
+
+
+
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -137,6 +158,7 @@ public class MainActivity extends AppCompatActivity {
                         drawerLayout.closeDrawer(GravityCompat.START);
                         SessionManagment mngt1=new SessionManagment(MainActivity.this);
                         String token1=mngt1.getSession();
+                        Log.e("Token",token1);
                         Intent intent1=new Intent(MainActivity.this, Progress.class);
                         intent1.putExtra("Token",token1);
                         intent1.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -151,6 +173,7 @@ public class MainActivity extends AppCompatActivity {
                     case  R.id.login:
                         Toast.makeText(MainActivity.this, "Login", Toast.LENGTH_SHORT).show();
                         drawerLayout.closeDrawer(GravityCompat.START);
+
                         SessionManagment sessionManagment=new SessionManagment(MainActivity.this);
                         sessionManagment.removeSession();
                         startActivity(new Intent(MainActivity.this, LoginScreen.class));
@@ -162,9 +185,9 @@ public class MainActivity extends AppCompatActivity {
                         sessionManagment1.removeSession();
                         Toast.makeText(MainActivity.this, "Removed", Toast.LENGTH_SHORT).show();
 
-//                        Intent intent=new Intent(MainActivity.this,LoginScreen.class);
-//                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//                        startActivity(intent);
+//                        Intent intent2=new Intent(MainActivity.this,LoginScreen.class);
+//                        intent2.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                        startActivity(intent2);
 
                         break;
                 }
