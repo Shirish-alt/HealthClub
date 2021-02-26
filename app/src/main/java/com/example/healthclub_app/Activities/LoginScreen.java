@@ -40,12 +40,12 @@ public class LoginScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login_screen);
+        setContentView(R.layout.activity_login);
 
-        user=findViewById(R.id.username);
-        pass=findViewById(R.id.password);
+        user=findViewById(R.id.editTextEmail);
+        pass=findViewById(R.id.editTextPassword);
 
-        login=findViewById(R.id.login);
+        login=findViewById(R.id.cirLoginButton);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override

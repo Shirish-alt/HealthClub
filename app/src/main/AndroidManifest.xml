@@ -19,7 +19,7 @@
         <!-- android:label="@string/title_activity_more_videos" /> -->
         <activity android:name=".Activities.Postdetails" />
         <activity android:name=".Activities.FullScreen" />
-        <activity android:name=".Activities.LoginScreen" />
+        <activity android:name=".Activities.LoginScreen"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

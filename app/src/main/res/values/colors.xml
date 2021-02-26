@@ -17,4 +17,11 @@
     <color name="profileBackground">#fff</color>
     <color name="blackTextColor">#000</color>
     <color name="profileEditTextColor">#707070</color>
+
+    <!--colors for modern ui-->
+    <color name="primaryTextColor">#2661FA</color>
+    <color name="loginBkColor">#f0f0f0</color>
+
+    <!--colros for card-->
+    <color name="whiteCardColor">#fff</color>
 </resources>
