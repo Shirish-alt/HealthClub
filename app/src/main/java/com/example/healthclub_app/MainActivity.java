@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
 
         res_posts.setLayoutManager(new LinearLayoutManager(this));
         res_posts.setHasFixedSize(true);
-
+ toolbar.setBackgroundResource(R.color.profilePrimaryDark);
 
 
 
