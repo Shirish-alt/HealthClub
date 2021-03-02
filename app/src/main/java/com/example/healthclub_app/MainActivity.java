@@ -118,10 +118,13 @@ public class MainActivity extends AppCompatActivity {
         sessionManagment=new SessionManagment(MainActivity.this);
         String token=sessionManagment.getSession();
 
+
+
         Menu sidemenu=navigationView.getMenu();
         if(token==null){
             MenuItem login_menu=sidemenu.findItem(R.id.logout);
             login_menu.setVisible(false);
+
         }else {
             MenuItem login_menu=sidemenu.findItem(R.id.login);
             login_menu.setVisible(false);

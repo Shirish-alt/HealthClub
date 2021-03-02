@@ -59,17 +59,6 @@ public class LoginScreen extends AppCompatActivity {
                  UserLogin(users,passs);
 
 
-//                if(users.contains("abc")){
-//
-//                    User user=new User(1,"abc");
-//                    Toast.makeText(LoginScreen.this, "Success", Toast.LENGTH_SHORT).show();
-//                    SessionManagment sessionManagment=new SessionManagment(LoginScreen.this);
-//                    sessionManagment.saveSession(user);
-//
-//
-//
-//                }
-
 
 
             }
@@ -126,13 +115,18 @@ public class LoginScreen extends AppCompatActivity {
 
                                     Log.e("Access",access_token+" "+user);
 
+
+
                                     if(users.contains(user)){
                                         User userData=new User(access_token,user);
                                         Toast.makeText(LoginScreen.this, "Success", Toast.LENGTH_SHORT).show();
                                         SessionManagment sessionManagment=new SessionManagment(LoginScreen.this);
                                         sessionManagment.saveSession(userData);
 
+
                                         MoveToMainScreen();
+
+
 
                                     }else{
                                         Toast.makeText(LoginScreen.this, "Enter Valid Data", Toast.LENGTH_SHORT).show();
@@ -160,11 +154,9 @@ public class LoginScreen extends AppCompatActivity {
         {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
-              //  String auth_token="4|sG7DSMiIb40PLKgnAEdgFdmCeopuqf8Yg1ULU5f4";
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("Authorization", "Bearer " + access_token);
-               // params.put("token_type","Bearer");
-              //  Log.e("Diet-Auth:", String.valueOf(params));
+
                 return params;
             }
 
