@@ -122,12 +122,21 @@ public class MainActivity extends AppCompatActivity {
 
         Menu sidemenu=navigationView.getMenu();
         if(token==null){
-            MenuItem login_menu=sidemenu.findItem(R.id.logout);
-            login_menu.setVisible(false);
+            MenuItem login_menu=sidemenu.findItem(R.id.login);
+            login_menu.setVisible(true);
 
-        }else {
+            MenuItem logout_menu1=sidemenu.findItem(R.id.logout);
+            logout_menu1.setVisible(false);
+
+
+
+       }
+        else {
             MenuItem login_menu=sidemenu.findItem(R.id.login);
             login_menu.setVisible(false);
+
+            MenuItem logout_menu1=sidemenu.findItem(R.id.logout);
+            logout_menu1.setVisible(true);
         }
 
 
@@ -177,8 +186,8 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "Login", Toast.LENGTH_SHORT).show();
                         drawerLayout.closeDrawer(GravityCompat.START);
 
-                        SessionManagment sessionManagment=new SessionManagment(MainActivity.this);
-                        sessionManagment.removeSession();
+//                        SessionManagment sessionManagment=new SessionManagment(MainActivity.this);
+//                        sessionManagment.removeSession();
                         startActivity(new Intent(MainActivity.this, LoginScreen.class));
 
                         break;
@@ -191,6 +200,7 @@ public class MainActivity extends AppCompatActivity {
 //                        Intent intent2=new Intent(MainActivity.this,LoginScreen.class);
 //                        intent2.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
 //                        startActivity(intent2);
+
 
                         break;
                 }
