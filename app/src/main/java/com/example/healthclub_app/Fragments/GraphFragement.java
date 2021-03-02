@@ -157,9 +157,9 @@ public class GraphFragement extends Fragment {
 
                                 MusleInfo.add(new BarEntry(i,Float.parseFloat(musclepercent)));
                                 BarDataSet dataSet1=new BarDataSet(MusleInfo,"Muscle");
-                                dataSet.setColors(Color.BLACK);
-                                dataSet.setValueTextColor(Color.BLACK);
-                                dataSet.setValueTextSize(15f);
+                                dataSet1.setColors(Color.BLACK);
+                                dataSet1.setValueTextColor(Color.BLACK);
+                                dataSet1.setValueTextSize(15f);
 
                                 BarData barData1=new BarData(dataSet1);
                                 musle_piechart.setFitBars(true);
@@ -172,9 +172,9 @@ public class GraphFragement extends Fragment {
 
                                 FatInfo.add(new BarEntry(i,Float.parseFloat(totalfatpercent)));
                                 BarDataSet dataSet2=new BarDataSet(FatInfo,"Fat");
-                                dataSet.setColors(Color.BLUE);
-                                dataSet.setValueTextColor(Color.BLACK);
-                                dataSet.setValueTextSize(15f);
+                                dataSet2.setColors(Color.BLUE);
+                                dataSet2.setValueTextColor(Color.BLACK);
+                                dataSet2.setValueTextSize(15f);
 
                                 BarData barData2=new BarData(dataSet2);
                                 fat_piechart.setFitBars(true);

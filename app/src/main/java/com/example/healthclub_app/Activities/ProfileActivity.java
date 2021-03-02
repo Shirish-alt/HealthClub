@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
@@ -26,6 +27,11 @@ import com.example.healthclub_app.Models.TableModel;
 import com.example.healthclub_app.R;
 import com.example.healthclub_app.Url.ApiInterface;
 import com.example.healthclub_app.Url.NetworkInstance;
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
@@ -48,6 +54,11 @@ public class ProfileActivity extends AppCompatActivity {
     TableAdapter tableAdapter;
     List<TableModel> tableModelList;
 
+    ArrayList<BarEntry> FatInfo,MusleInfo,WeightInfo,VfatInfo;
+    ArrayList<BarEntry> BmiInfo;
+    ArrayList<String> bmi_lables;
+    BarChart bmi_barChart, musle_piechart,fat_piechart,weight_piechart,vfat_barchart;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,11 +75,22 @@ public class ProfileActivity extends AppCompatActivity {
         prof_dob=findViewById(R.id.prof_dob);
         prof_mobile=findViewById(R.id.prof_mobile);
 
+        bmi_barChart=(BarChart) findViewById(R.id.Bmi_piechart);
+        musle_piechart=(BarChart) findViewById(R.id.musle_piechart);
+        fat_piechart=(BarChart) findViewById(R.id.fat_piechart);
+        weight_piechart=(BarChart) findViewById(R.id.weight_piechart);
+        vfat_barchart=(BarChart) findViewById(R.id.Vfat_piechart);
+
         res_table=findViewById(R.id.res_table);
         res_table.setHasFixedSize(true);
         res_table.setLayoutManager(new LinearLayoutManager(ProfileActivity.this));
 
         //ArrayList...
+        BmiInfo =new ArrayList<BarEntry>();
+        FatInfo =new ArrayList<BarEntry>();
+        MusleInfo =new ArrayList<BarEntry>();
+        WeightInfo =new ArrayList<BarEntry>();
+        VfatInfo =new ArrayList<BarEntry>();
 
         tableModelList=new ArrayList<>();
 
@@ -129,6 +151,7 @@ public class ProfileActivity extends AppCompatActivity {
 
                 UserObject getuser=response.body().getUserObject();
                 UserData userData=response.body().getUserData();
+    //Profile
                 profile_title.setText(getuser.getUsername());
                 profile_email.setText(getuser.getUseremail());
                 prof_name.setText(getuser.getUsername());
@@ -155,7 +178,94 @@ public class ProfileActivity extends AppCompatActivity {
                             item.getMusclepercent(),item.getWeektype(),
                             item.getCreated_date()
                     );
+    //Table
                     tableModelList.add(model);
+
+
+
+
+      //Graph
+
+
+                    //Weight Info...
+                    WeightInfo.add(new BarEntry(i,Float.parseFloat(item.getWeight())));
+                    BarDataSet dataSetw=new BarDataSet(WeightInfo,"Weight");
+                    dataSetw.setColors(Color.MAGENTA);
+
+                    dataSetw.setValueTextColor(Color.BLACK);
+                    dataSetw.setValueTextSize(15f);
+
+                    BarData barDataw=new BarData(dataSetw);
+                    weight_piechart.setFitBars(true);
+                    weight_piechart.setData(barDataw);
+
+                    weight_piechart.getDescription().setText("WEIGHT Report");
+                    weight_piechart.animateY(1000);
+
+                    //VFat Info...
+                    VfatInfo.add(new BarEntry(i,Float.parseFloat(item.getVfat())));
+                    BarDataSet dataSetv=new BarDataSet(VfatInfo,"VFAT");
+                    dataSetv.setColors(Color.GREEN);
+
+                    dataSetv.setValueTextColor(Color.BLACK);
+                    dataSetv.setValueTextSize(15f);
+
+                    BarData barDatav=new BarData(dataSetv);
+                    vfat_barchart.setFitBars(true);
+                    vfat_barchart.setData(barDatav);
+
+                    vfat_barchart.getDescription().setText("VFAT Report");
+                    vfat_barchart.animateY(1000);
+
+                    //Bmi Info...
+                    BmiInfo.add(new BarEntry(i,Float.parseFloat(item.getBmi())));
+                    BarDataSet dataSetb=new BarDataSet(BmiInfo,"BMI");
+                    dataSetb.setColors(Color.BLUE);
+
+                    dataSetb.setValueTextColor(Color.BLACK);
+                    dataSetb.setValueTextSize(15f);
+
+                    BarData barData=new BarData(dataSetb);
+                    bmi_barChart.setFitBars(true);
+                    bmi_barChart.setData(barData);
+
+                    bmi_barChart.getDescription().setText("Bar Report");
+                    bmi_barChart.animateY(1000);
+
+                    //Musle Info
+
+
+                    MusleInfo.add(new BarEntry(i,Float.parseFloat(item.getMusclepercent())));
+                    BarDataSet dataSetm=new BarDataSet(MusleInfo,"Muscle");
+                    dataSetm.setColors(Color.BLACK);
+                    dataSetm.setValueTextColor(Color.BLACK);
+                    dataSetm.setValueTextSize(15f);
+
+                    BarData barData1=new BarData(dataSetm);
+                    musle_piechart.setFitBars(true);
+                    musle_piechart.setData(barData1);
+                    musle_piechart.getDescription().setText("Bar Report");
+                    musle_piechart.animateY(3000);
+
+
+                    //Fat Into
+
+                    FatInfo.add(new BarEntry(i,Float.parseFloat(item.getTotalfatpercent())));
+                    BarDataSet dataSetf=new BarDataSet(FatInfo,"Fat");
+                    dataSetf.setColors(Color.RED);
+                    dataSetf.setValueTextColor(Color.BLACK);
+                    dataSetf.setValueTextSize(15f);
+
+                    BarData barData2=new BarData(dataSetf);
+                    fat_piechart.setFitBars(true);
+                    fat_piechart.setData(barData2);
+                    fat_piechart.getDescription().setText("Bar Report");
+                    fat_piechart.animateY(4000);
+
+
+
+
+
 
                 }
                 tableAdapter=new TableAdapter(ProfileActivity.this,tableModelList);
@@ -165,11 +275,16 @@ public class ProfileActivity extends AppCompatActivity {
 
 
 
+
+
+
+
+
             }
 
             @Override
             public void onFailure(Call<DataObject> call, Throwable t) {
-
+                Toast.makeText(ProfileActivity.this, "Err:"+t.toString(), Toast.LENGTH_SHORT).show();
             }
         });
 
