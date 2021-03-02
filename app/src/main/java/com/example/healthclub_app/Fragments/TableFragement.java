@@ -91,7 +91,7 @@ String access_token;
                                 String musclepercent=object.getString("musclepercent");
                                 String type=object.getString("type");
 
-                                TableModel tableModel=new TableModel("","",weight,vfat,tsf,totalfatpercent,bmi,bmr,musclepercent,type);
+                                TableModel tableModel=new TableModel("","",weight,vfat,tsf,totalfatpercent,bmi,bmr,musclepercent,type,"");
                                 tableModelList.add(tableModel);
 
                             }

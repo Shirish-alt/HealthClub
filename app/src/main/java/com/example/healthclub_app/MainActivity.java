@@ -155,7 +155,11 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case  R.id.progress:
                      //   Toast.makeText(MainActivity.this, "Exercise", Toast.LENGTH_SHORT).show();
-                        drawerLayout.closeDrawer(GravityCompat.START);
+
+                        break;
+                    case  R.id.profile:
+                        Toast.makeText(MainActivity.this, "Profile", Toast.LENGTH_SHORT).show();
+
                         SessionManagment mngt1=new SessionManagment(MainActivity.this);
                         String token1=mngt1.getSession();
 //                        Log.e("Token",token1);
@@ -163,10 +167,6 @@ public class MainActivity extends AppCompatActivity {
                         intent1.putExtra("Token",token1);
                         intent1.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(intent1);
-
-                        break;
-                    case  R.id.profile:
-                        Toast.makeText(MainActivity.this, "Profile", Toast.LENGTH_SHORT).show();
                         drawerLayout.closeDrawer(GravityCompat.START);
 
                         break;

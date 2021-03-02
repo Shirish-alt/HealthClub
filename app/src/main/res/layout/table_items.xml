@@ -7,24 +7,37 @@
     <TableRow android:layout_width="0dp"
         android:layout_margin="2dp"
     >
+
         <TextView
-            android:id="@+id/weight"
-            android:textColor="#fff"
+            android:id="@+id/date"
+            android:textColor="#000"
             android:padding="2dp"
-            android:layout_width="70dp"
+
+            android:textSize="12sp"
+            android:layout_width="90dp"
             android:gravity="center"
             android:background="@drawable/cell"
             android:layout_column="1"
             />
 
         <TextView
+            android:id="@+id/weight"
+            android:textColor="#000"
+            android:padding="2dp"
+            android:layout_width="90dp"
+            android:gravity="center"
+            android:background="@drawable/cell"
+            android:layout_column="2"
+            />
+
+        <TextView
             android:id="@+id/vfat"
             android:padding="2dp"
             android:gravity="center"
-            android:layout_width="70dp"
-            android:textColor="#fff"
+            android:layout_width="90dp"
+            android:textColor="#000"
             android:background="@drawable/cell"
-            android:layout_column="2"
+            android:layout_column="3"
             />
 
         <TextView
@@ -32,9 +45,9 @@
             android:padding="2dp"
             android:background="@drawable/cell"
             android:gravity="center"
-            android:layout_width="70dp"
-            android:textColor="#fff"
-            android:layout_column="3"
+            android:layout_width="90dp"
+            android:textColor="#000"
+            android:layout_column="4"
             />
 
         <TextView
@@ -42,39 +55,39 @@
             android:padding="2dp"
             android:background="@drawable/cell"
             android:gravity="center"
-            android:layout_width="70dp"
-            android:textColor="#fff"
-            android:layout_column="4"
+            android:layout_width="90dp"
+            android:textColor="#000"
+            android:layout_column="5"
             />
 
         <TextView
             android:id="@+id/bmi"
             android:padding="2dp"
             android:background="@drawable/cell"
-            android:layout_width="70dp"
-            android:textColor="#fff"
+            android:layout_width="90dp"
+            android:textColor="#000"
             android:gravity="center"
-            android:layout_column="5"
+            android:layout_column="6"
             />
 
         <TextView
             android:id="@+id/bmr"
             android:padding="2dp"
             android:background="@drawable/cell"
-            android:layout_width="70dp"
+            android:layout_width="90dp"
             android:gravity="center"
-            android:textColor="#fff"
-            android:layout_column="6"
+            android:textColor="#000"
+            android:layout_column="7"
             />
 
         <TextView
             android:id="@+id/musclepercent"
             android:padding="2dp"
-            android:layout_width="70dp"
+            android:layout_width="90dp"
             android:background="@drawable/cell"
             android:gravity="center"
-            android:textColor="#fff"
-            android:layout_column="7"
+            android:textColor="#000"
+            android:layout_column="8"
             />
 
         <TextView
@@ -82,10 +95,11 @@
             android:padding="2dp"
             android:background="@drawable/cell"
             android:gravity="center"
-            android:textColor="#fff"
-            android:layout_width="70dp"
-            android:layout_column="8"
+            android:textColor="#000"
+            android:layout_width="90dp"
+            android:layout_column="9"
             />
+
 
     </TableRow>
 

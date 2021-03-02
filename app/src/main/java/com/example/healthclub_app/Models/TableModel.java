@@ -1,9 +1,9 @@
 package com.example.healthclub_app.Models;
 
 public class TableModel {
-    String id,user_id,weight,vfat,tsf,totalfatpercent,bmi,bmr,musclepercent,type;
+    String id,user_id,weight,vfat,tsf,totalfatpercent,bmi,bmr,musclepercent,type,date;
 
-    public TableModel(String id, String user_id, String weight, String vfat, String tsf, String totalfatpercent, String bmi, String bmr, String musclepercent, String type) {
+    public TableModel(String id, String user_id, String weight, String vfat, String tsf, String totalfatpercent, String bmi, String bmr, String musclepercent, String type,String date) {
         this.id = id;
         this.user_id = user_id;
         this.weight = weight;
@@ -14,6 +14,15 @@ public class TableModel {
         this.bmr = bmr;
         this.musclepercent = musclepercent;
         this.type = type;
+        this.date = date;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public String getId() {

@@ -44,6 +44,7 @@ public class TableAdapter extends RecyclerView.Adapter<TableAdapter.TableHolder>
         holder.bmr.setText(model.getBmr());
         holder.musclepercent.setText(model.getMusclepercent());
         holder.type.setText(model.getType());
+        holder.date.setText(model.getDate());
 
         float vfat= Float.parseFloat(model.getVfat());
         float total= Float.parseFloat(model.getTotalfatpercent());
@@ -83,7 +84,7 @@ public class TableAdapter extends RecyclerView.Adapter<TableAdapter.TableHolder>
 
     public  class TableHolder extends RecyclerView.ViewHolder{
 
-        TextView weight,vfat,tsf,totalfatpercent,bmi,bmr,musclepercent,type;
+        TextView weight,vfat,tsf,totalfatpercent,bmi,bmr,musclepercent,type,date;
 
         public TableHolder(@NonNull View itemView) {
             super(itemView);
@@ -95,6 +96,7 @@ public class TableAdapter extends RecyclerView.Adapter<TableAdapter.TableHolder>
             bmr=itemView.findViewById(R.id.bmr);
             musclepercent=itemView.findViewById(R.id.musclepercent);
             type=itemView.findViewById(R.id.type);
+            date=itemView.findViewById(R.id.date);
         }
     }
 }

@@ -9,9 +9,9 @@
         android:icon="@drawable/diet"
         android:title="Diet"/>
 
-    <item android:id="@+id/progress"
-        android:icon="@drawable/progress"
-        android:title="Progress"/>
+<!--    <item android:id="@+id/progress"-->
+<!--        android:icon="@drawable/progress"-->
+<!--        android:title="Progress"/>-->
     <item android:id="@+id/profile"
         android:icon="@drawable/profile"
         android:title="Profile"/>
