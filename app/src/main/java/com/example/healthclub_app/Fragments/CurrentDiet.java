@@ -40,8 +40,8 @@ public class CurrentDiet extends Fragment {
     String access_token="",name;
     WebView webView;
     String str;
-    List<DietModel> dietModels,dietModels1,dietModels2,dietModels3,dietModels4,dietModels5;
-    RecyclerView res_brkfast,res_mid_mrng,res_lunch,res_afternoon,res_evening,res_dinner;
+    List<DietModel> dietModels,dietModels1,dietModels2,dietModels3,dietModels4,dietModels5,dietModels6;
+    RecyclerView res_brkfast,res_mid_mrng,res_lunch,res_afternoon,res_evening,res_dinner,res_waterintake;
     public CurrentDiet(String token) {
         access_token=token;
     }
@@ -57,6 +57,7 @@ public class CurrentDiet extends Fragment {
         res_afternoon=view.findViewById(R.id.res_afternoon);
         res_evening=view.findViewById(R.id.res_evening);
         res_dinner=view.findViewById(R.id.res_dinner);
+        res_waterintake=view.findViewById(R.id.res_waterintake);
 
         res_brkfast.setHasFixedSize(true);
         res_brkfast.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -76,6 +77,9 @@ public class CurrentDiet extends Fragment {
         res_dinner.setHasFixedSize(true);
         res_dinner.setLayoutManager(new LinearLayoutManager(getActivity()));
 
+        res_waterintake.setHasFixedSize(true);
+        res_waterintake.setLayoutManager(new LinearLayoutManager(getActivity()));
+
 
 
 
@@ -87,6 +91,7 @@ public class CurrentDiet extends Fragment {
 //     Log.e("TokenDiet:",access_token);
 
         if(access_token!=null){
+            Log.e("Token",access_token);
             LoadCurrentDiet(access_token);
         }else{
             Toast.makeText(getActivity(), "Please Login", Toast.LENGTH_LONG).show();
@@ -98,6 +103,7 @@ public class CurrentDiet extends Fragment {
         dietModels3=new ArrayList<>();
         dietModels4=new ArrayList<>();
         dietModels5=new ArrayList<>();
+        dietModels6=new ArrayList<>();
 
 
 
@@ -191,13 +197,19 @@ public class CurrentDiet extends Fragment {
                             }
                         }
 
-                        JSONArray brkarr6=objectdiet.getJSONArray("Water_Intake");
-                        if(brkarr6 != null) {
-                            for (int b = 0; b < brkarr6.length(); b++) {
-                                String items = brkarr6.getString(b);
 
-                                DietModel model = new DietModel("Water_Intake", "- " + items);
-                                dietModels5.add(model);
+
+
+
+                        if(objectdiet.get("Water_Intake") != null) {
+                            JSONArray brkarr6 = objectdiet.getJSONArray("Water_Intake");
+                            if (brkarr6.length() > 0) {
+                                for (int b = 0; b < brkarr6.length(); b++) {
+                                    String items = brkarr6.getString(b);
+
+                                    DietModel model = new DietModel("Water_Intake", "- " + items);
+                                    dietModels6.add(model);
+                                }
                             }
                         }
 
@@ -210,6 +222,7 @@ public class CurrentDiet extends Fragment {
                     ItemAdapter itemAdapter3=new ItemAdapter(getActivity(),dietModels3);
                     ItemAdapter itemAdapter4=new ItemAdapter(getActivity(),dietModels4);
                     ItemAdapter itemAdapter5=new ItemAdapter(getActivity(),dietModels5);
+                    ItemAdapter itemAdapter6=new ItemAdapter(getActivity(),dietModels5);
 
                     res_brkfast.setAdapter(itemAdapter);
                     res_mid_mrng.setAdapter(itemAdapter1);
@@ -217,6 +230,7 @@ public class CurrentDiet extends Fragment {
                     res_afternoon.setAdapter(itemAdapter3);
                     res_evening.setAdapter(itemAdapter4);
                     res_dinner.setAdapter(itemAdapter5);
+                    res_waterintake.setAdapter(itemAdapter6);
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -234,6 +248,8 @@ public class CurrentDiet extends Fragment {
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String,String> map=new HashMap<>();
                 map.put("Authorization", "Bearer " + access_token);
+                Log.e("DietAuth", String.valueOf(map));
+
                 return  map;
             }
         };
