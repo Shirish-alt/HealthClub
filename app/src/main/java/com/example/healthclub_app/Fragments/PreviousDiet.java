@@ -120,96 +120,173 @@ public class PreviousDiet extends Fragment {
                 Urls.Diet_Url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-
+                Log.e("Prev",response);
                 try {
                     JSONArray array=new JSONArray(response);
-                    for(int i=1;i<=1;i++){
-                        JSONObject object= (JSONObject) array.get(1);
-
-                        if(object.equals(null)){
-                            Toast.makeText(getActivity(), "No Data", Toast.LENGTH_SHORT).show();
-                        }
 
 
-                        String id=object.getString("id");
-                        Log.e("Id",id);
+                    if(array.get(1).equals(null)){
+                        Toast.makeText(getActivity(), "No Data", Toast.LENGTH_SHORT).show();
+                        res_brkfast.setVisibility(View.GONE);
+                        res_dinner.setVisibility(View.GONE);
+                        res_evening.setVisibility(View.GONE);
+                        res_afternoon.setVisibility(View.GONE);
+                        res_lunch.setVisibility(View.GONE);
+                        res_mid_mrng.setVisibility(View.GONE);
+                        res_prev_earluymorning.setVisibility(View.GONE);
+                        res_prev_ifyouarehugery.setVisibility(View.GONE);
+
+                    }else{
+
+                        for(int i=1;i<=1;i++){
+                            JSONObject object= (JSONObject) array.get(1);
+
+
+
+                            String id=object.getString("id");
+                            Log.e("Id",id);
 //JsonObject "diet"
 
-                        JSONObject objectdiet=object.getJSONObject("diet");
-                        Log.e("Previous Diet",""+objectdiet);
+                            JSONObject objectdiet=object.getJSONObject("diet");
+                            Log.e("Previous Diet",""+objectdiet);
 //                        JSONArray names=objectdiet.names();
 
 
 
 
-                        JSONArray brkarr=objectdiet.getJSONArray("Breakfast");
+                            if(objectdiet.get("").equals(null)){
+                                res_prev_earluymorning.setVisibility(View.GONE);
+                            }else {
+                                JSONArray arrayEarly=objectdiet.getJSONArray("Early_Morning");
+                                for(int e=0;e<arrayEarly.length();e++){
+                                    String items=arrayEarly.getString(e);
+                                    DietModel model=new DietModel("Early_Morning",items);
+                                    dietModels6.add(model);
 
-                        for(int b=0;b<brkarr.length();b++){
-                            String items=brkarr.getString(b);
+                                }
+                            }
 
-                            DietModel model=new DietModel("Brackfast","- "+items);
-                            dietModels.add(model);
+
+
+                            if(objectdiet.get("Breakfast").equals(null)){
+                                res_brkfast.setVisibility(View.GONE);
+                            }else {
+                                JSONArray brkarr=objectdiet.getJSONArray("Breakfast");
+
+                                for(int b=0;b<brkarr.length();b++){
+                                    String items=brkarr.getString(b);
+
+                                    DietModel model=new DietModel("Brackfast","- "+items);
+                                    dietModels.add(model);
+                                }
+                            }
+
+
+                            if(objectdiet.get("Mid_Morning_Snack").equals(null)){
+                                res_mid_mrng.setVisibility(View.GONE);
+                            }else {
+                                JSONArray brkarr1=objectdiet.getJSONArray("Mid_Morning_Snack");
+                                for(int b=0;b<brkarr1.length();b++){
+                                    String items=brkarr1.getString(b);
+
+                                    DietModel model1=new DietModel("Mid_Morning_Snack","- "+items);
+                                    dietModels1.add(model1);
+                                }
+                            }
+
+
+
+
+                            if(objectdiet.get("lunch").equals(null)){
+                                res_lunch.setVisibility(View.GONE);
+                            }else{
+                                JSONArray brkarr2=objectdiet.getJSONArray("lunch");
+                                for(int b=0;b<brkarr2.length();b++){
+                                    String items=brkarr2.getString(b);
+
+                                    DietModel model=new DietModel("lunch","- "+items);
+                                    dietModels2.add(model);
+                                }
+                            }
+
+
+
+                            if(objectdiet.get("Afetnoon_Snack").equals(null)){
+                                res_afternoon.setVisibility(View.GONE);
+                            }else {
+                                JSONArray brkarr3=objectdiet.getJSONArray("Afetnoon_Snack");
+                                for(int b=0;b<brkarr3.length();b++){
+                                    String items=brkarr3.getString(b);
+
+                                    DietModel model=new DietModel("Afetnoon_Snack","- "+items);
+                                    dietModels3.add(model);
+                                }
+
+                            }
+
+                            if(objectdiet.get("Evening_Snack").equals(null)){
+                                res_evening.setVisibility(View.GONE);
+                            }else{
+                                JSONArray brkarr4=objectdiet.getJSONArray("Evening_Snack");
+                                for(int b=0;b<brkarr4.length();b++){
+                                    String items=brkarr4.getString(b);
+
+                                    DietModel model=new DietModel("Evening_Snack","- "+items);
+                                    dietModels4.add(model);
+                                }
+                            }
+
+
+                         if(objectdiet.get("Dinner").equals(null)){
+                             res_dinner.setVisibility(View.GONE);
+                         }else{
+                             JSONArray brkarr5=objectdiet.getJSONArray("Dinner");
+                             for(int b=0;b<brkarr5.length();b++){
+                                 String items=brkarr5.getString(b);
+
+                                 DietModel model=new DietModel("Dinner","- "+items);
+                                 dietModels5.add(model);
+                             }
+
+                         }
+
+                         if(objectdiet.get("").equals(null)){
+                             res_prev_ifyouarehugery.setVisibility(View.GONE);
+                         }else {
+                             JSONArray hungrykarr5=objectdiet.getJSONArray("Water_Intake");
+                             for(int b=0;b<hungrykarr5.length();b++){
+                                 String items=hungrykarr5.getString(b);
+
+                                 DietModel model=new DietModel("Water_Intake","- "+items);
+                                 dietModels7.add(model);
+                             }
+
+                         }
+
+
+
+
+
                         }
-
-                        JSONArray brkarr1=objectdiet.getJSONArray("Mid_Morning_Snack");
-                        for(int b=0;b<brkarr1.length();b++){
-                            String items=brkarr1.getString(b);
-
-                            DietModel model1=new DietModel("Mid_Morning_Snack","- "+items);
-                            dietModels1.add(model1);
-                        }
-
-                        JSONArray brkarr2=objectdiet.getJSONArray("lunch");
-                        for(int b=0;b<brkarr2.length();b++){
-                            String items=brkarr2.getString(b);
-
-                            DietModel model=new DietModel("lunch","- "+items);
-                            dietModels2.add(model);
-                        }
-
-                        JSONArray brkarr3=objectdiet.getJSONArray("Afetnoon_Snack");
-                        for(int b=0;b<brkarr3.length();b++){
-                            String items=brkarr3.getString(b);
-
-                            DietModel model=new DietModel("Afetnoon_Snack","- "+items);
-                            dietModels3.add(model);
-                        }
-
-                        JSONArray brkarr4=objectdiet.getJSONArray("Evening_Snack");
-                        for(int b=0;b<brkarr4.length();b++){
-                            String items=brkarr4.getString(b);
-
-                            DietModel model=new DietModel("Evening_Snack","- "+items);
-                            dietModels4.add(model);
-                        }
-
-                        JSONArray brkarr5=objectdiet.getJSONArray("Dinner");
-                        for(int b=0;b<brkarr5.length();b++){
-                            String items=brkarr5.getString(b);
-
-                            DietModel model=new DietModel("Dinner","- "+items);
-                            dietModels5.add(model);
-                        }
-
-
-
-
-                    }
 //                    ItemAdapter itemAdapter=new ItemAdapter(getActivity(),dietModels);
 //                    recyclerView.setAdapter(itemAdapter);
-                    ItemAdapter itemAdapter=new ItemAdapter(getActivity(),dietModels);
-                    ItemAdapter itemAdapter1=new ItemAdapter(getActivity(),dietModels1);
-                    ItemAdapter itemAdapter2=new ItemAdapter(getActivity(),dietModels2);
-                    ItemAdapter itemAdapter3=new ItemAdapter(getActivity(),dietModels3);
-                    ItemAdapter itemAdapter4=new ItemAdapter(getActivity(),dietModels4);
-                    ItemAdapter itemAdapter5=new ItemAdapter(getActivity(),dietModels5);
+                        ItemAdapter itemAdapter=new ItemAdapter(getActivity(),dietModels);
+                        ItemAdapter itemAdapter1=new ItemAdapter(getActivity(),dietModels1);
+                        ItemAdapter itemAdapter2=new ItemAdapter(getActivity(),dietModels2);
+                        ItemAdapter itemAdapter3=new ItemAdapter(getActivity(),dietModels3);
+                        ItemAdapter itemAdapter4=new ItemAdapter(getActivity(),dietModels4);
+                        ItemAdapter itemAdapter5=new ItemAdapter(getActivity(),dietModels5);
+                        ItemAdapter itemAdapter6=new ItemAdapter(getActivity(),dietModels6);
+                        ItemAdapter itemAdapter7=new ItemAdapter(getActivity(),dietModels7);
 
-                    res_brkfast.setAdapter(itemAdapter);
-                    res_mid_mrng.setAdapter(itemAdapter1);
-                    res_lunch.setAdapter(itemAdapter2);
-                    res_afternoon.setAdapter(itemAdapter3);
-                    res_evening.setAdapter(itemAdapter4);
-                    res_dinner.setAdapter(itemAdapter5);
+                        res_brkfast.setAdapter(itemAdapter);
+                        res_mid_mrng.setAdapter(itemAdapter1);
+                        res_lunch.setAdapter(itemAdapter2);
+                        res_afternoon.setAdapter(itemAdapter3);
+                        res_evening.setAdapter(itemAdapter4);
+                        res_prev_earluymorning.setAdapter(itemAdapter6);
+                        res_prev_ifyouarehugery.setAdapter(itemAdapter7);
+                    }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
