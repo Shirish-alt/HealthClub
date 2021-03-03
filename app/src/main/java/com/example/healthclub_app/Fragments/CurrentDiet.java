@@ -40,8 +40,8 @@ public class CurrentDiet extends Fragment {
     String access_token="",name;
     WebView webView;
     String str;
-    List<DietModel> dietModels,dietModels1,dietModels2,dietModels3,dietModels4,dietModels5,dietModels6;
-    RecyclerView res_brkfast,res_mid_mrng,res_lunch,res_afternoon,res_evening,res_dinner,res_waterintake;
+    List<DietModel> dietModels,dietModels1,dietModels2,dietModels3,dietModels4,dietModels5,dietModels6,dietModels7;
+    RecyclerView res_brkfast,res_mid_mrng,res_lunch,res_afternoon,res_evening,res_dinner,res_waterintake,res_earlymorning;
     public CurrentDiet(String token) {
         access_token=token;
     }
@@ -58,6 +58,7 @@ public class CurrentDiet extends Fragment {
         res_evening=view.findViewById(R.id.res_evening);
         res_dinner=view.findViewById(R.id.res_dinner);
         res_waterintake=view.findViewById(R.id.res_waterintake);
+        res_earlymorning=view.findViewById(R.id.res_earlymorning);
 
         res_brkfast.setHasFixedSize(true);
         res_brkfast.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -79,6 +80,8 @@ public class CurrentDiet extends Fragment {
 
         res_waterintake.setHasFixedSize(true);
         res_waterintake.setLayoutManager(new LinearLayoutManager(getActivity()));
+        res_earlymorning.setHasFixedSize(true);
+        res_earlymorning.setLayoutManager(new LinearLayoutManager(getActivity()));
 
 
 
@@ -104,6 +107,7 @@ public class CurrentDiet extends Fragment {
         dietModels4=new ArrayList<>();
         dietModels5=new ArrayList<>();
         dietModels6=new ArrayList<>();
+        dietModels7=new ArrayList<>();
 
 
 
@@ -127,91 +131,135 @@ public class CurrentDiet extends Fragment {
 
                         JSONObject objectdiet=object.getJSONObject("diet");
 
-                        JSONArray brkarr=objectdiet.getJSONArray("Early_Morning");
-                        if(brkarr != null) {
-                            for (int b = 0; b < brkarr.length(); b++) {
-                                String items = brkarr.getString(b);
-
-                                DietModel model = new DietModel("Early_Morning", "- " + items);
-                                dietModels.add(model);
-                            }
-                        }
-
-                        JSONArray brkarr0=objectdiet.getJSONArray("Breakfast");
-                        if(brkarr0 != null) {
-                            for (int b = 0; b < brkarr0.length(); b++) {
-                                String items = brkarr0.getString(b);
-
-                                DietModel model = new DietModel("Breakfast", "- " + items);
-                                dietModels.add(model);
-                            }
-                        }
-
-                        JSONArray brkarr1=objectdiet.getJSONArray("Mid_Morning_Snack");
-                        if(brkarr1 != null) {
-                            for (int b = 0; b < brkarr1.length(); b++) {
-                                String items = brkarr1.getString(b);
-
-                                DietModel model1 = new DietModel("Mid_Morning_Snack", "- " + items);
-                                dietModels1.add(model1);
-                            }
-                        }
-
-                        JSONArray brkarr2=objectdiet.getJSONArray("lunch");
-                        if(brkarr2 != null) {
-                            for (int b = 0; b < brkarr2.length(); b++) {
-                                String items = brkarr2.getString(b);
-
-                                DietModel model = new DietModel("lunch", "- " + items);
-                                dietModels2.add(model);
-                            }
-                        }
-
-                        JSONArray brkarr3=objectdiet.getJSONArray("Afetnoon_Snack");
-                        if(brkarr3 != null) {
-                            for (int b = 0; b < brkarr3.length(); b++) {
-                                String items = brkarr3.getString(b);
-
-                                DietModel model = new DietModel("Afetnoon_Snack", "- " + items);
-                                dietModels3.add(model);
-                            }
-                        }
-
-                        JSONArray brkarr4=objectdiet.getJSONArray("Evening_Snack");
-                        if(brkarr4 != null) {
-                            for (int b = 0; b < brkarr4.length(); b++) {
-                                String items = brkarr4.getString(b);
-
-                                DietModel model = new DietModel("Evening_Snack", "- " + items);
-                                dietModels4.add(model);
-                            }
-                        }
-
-                        JSONArray brkarr5=objectdiet.getJSONArray("Dinner");
-                        if(brkarr5 != null) {
-                            for (int b = 0; b < brkarr5.length(); b++) {
-                                String items = brkarr5.getString(b);
-
-                                DietModel model = new DietModel("Dinner", "- " + items);
-                                dietModels5.add(model);
-                            }
-                        }
 
 
 
+                        if(objectdiet.get("Early_Morning").equals(null)){
+                            res_earlymorning.setVisibility(View.GONE);
+                        }else {
+                            JSONArray brkarr=objectdiet.getJSONArray("Early_Morning");
+                            if(brkarr != null) {
+                                for (int e = 0; e < brkarr.length(); e++) {
+                                    String items = brkarr.getString(e);
 
-
-                        if(objectdiet.get("Water_Intake") != null) {
-                            JSONArray brkarr6 = objectdiet.getJSONArray("Water_Intake");
-                            if (brkarr6.length() > 0) {
-                                for (int b = 0; b < brkarr6.length(); b++) {
-                                    String items = brkarr6.getString(b);
-
-                                    DietModel model = new DietModel("Water_Intake", "- " + items);
-                                    dietModels6.add(model);
+                                    DietModel model = new DietModel("Early_Morning", "- " + items);
+                                    dietModels7.add(model);
                                 }
                             }
                         }
+
+
+
+                        if(objectdiet.get("Breakfast").equals(null)){
+                            res_brkfast.setVisibility(View.GONE);
+                        }else{
+                            JSONArray brkarr0=objectdiet.getJSONArray("Breakfast");
+                            if(brkarr0 != null) {
+                                for (int b = 0; b < brkarr0.length(); b++) {
+                                    String items = brkarr0.getString(b);
+
+                                    DietModel model = new DietModel("Breakfast", "- " + items);
+                                    dietModels.add(model);
+                                }
+                            }
+                        }
+
+                        if(objectdiet.get("Mid_Morning_Snack").equals(null)){
+                            res_mid_mrng.setVisibility(View.GONE);
+                        }else {
+                            JSONArray brkarr1=objectdiet.getJSONArray("Mid_Morning_Snack");
+                            if(brkarr1 != null) {
+                                for (int b = 0; b < brkarr1.length(); b++) {
+                                    String items = brkarr1.getString(b);
+
+                                    DietModel model1 = new DietModel("Mid_Morning_Snack", "- " + items);
+                                    dietModels1.add(model1);
+                                }
+                            }
+                        }
+
+
+                        if(objectdiet.get("lunch").equals(null)){
+                            res_lunch.setVisibility(View.GONE);
+                        }else {
+                            JSONArray brkarr2=objectdiet.getJSONArray("lunch");
+                            if(brkarr2 != null) {
+                                for (int b = 0; b < brkarr2.length(); b++) {
+                                    String items = brkarr2.getString(b);
+
+                                    DietModel model = new DietModel("lunch", "- " + items);
+                                    dietModels2.add(model);
+                                }
+                            }
+                        }
+
+
+                        if(objectdiet.get("Afetnoon_Snack").equals(null)){
+                         res_afternoon.setVisibility(View.GONE);
+                        }
+
+                       else {
+                            JSONArray brkarr3=objectdiet.getJSONArray("Afetnoon_Snack");
+                            if(brkarr3 != null) {
+                                for (int b = 0; b < brkarr3.length(); b++) {
+                                    String items = brkarr3.getString(b);
+
+                                    DietModel model = new DietModel("Afetnoon_Snack", "- " + items);
+                                    dietModels3.add(model);
+                                }
+                            }
+                        }
+
+
+
+                      if(objectdiet.get("Evening_Snack").equals(null)){
+                          res_evening.setVisibility(View.GONE);
+
+                      }else{
+                          JSONArray brkarr4=objectdiet.getJSONArray("Evening_Snack");
+                          if(brkarr4 != null) {
+                              for (int b = 0; b < brkarr4.length(); b++) {
+                                  String items = brkarr4.getString(b);
+
+                                  DietModel model = new DietModel("Evening_Snack", "- " + items);
+                                  dietModels4.add(model);
+                              }
+                          }
+                      }
+
+                      if(objectdiet.get("Dinner").equals(null)){
+                          res_dinner.setVisibility(View.GONE);
+                      }
+
+                       else {
+                          JSONArray brkarr5=objectdiet.getJSONArray("Dinner");
+                          if(brkarr5 != null) {
+                              for (int b = 0; b < brkarr5.length(); b++) {
+                                  String items = brkarr5.getString(b);
+
+                                  DietModel model = new DietModel("Dinner", "- " + items);
+                                  dietModels5.add(model);
+                              }
+                          }
+                      }
+
+
+
+
+
+                        if(objectdiet.get("Water_Intake").equals(null)){
+                            Toast.makeText(getActivity(), "No DAta", Toast.LENGTH_SHORT).show();
+                            res_waterintake.setVisibility(View.GONE);
+                        }else{
+                            JSONArray waterArr=objectdiet.getJSONArray("Water_Intake");
+                            for(int w=0;w<waterArr.length();w++){
+                                String items=waterArr.getString(w);
+                                DietModel model=new DietModel("Water_Intake",items);
+                                dietModels6.add(model);
+                            }
+                        }
+
+
 
 
 
@@ -222,7 +270,8 @@ public class CurrentDiet extends Fragment {
                     ItemAdapter itemAdapter3=new ItemAdapter(getActivity(),dietModels3);
                     ItemAdapter itemAdapter4=new ItemAdapter(getActivity(),dietModels4);
                     ItemAdapter itemAdapter5=new ItemAdapter(getActivity(),dietModels5);
-                    ItemAdapter itemAdapter6=new ItemAdapter(getActivity(),dietModels5);
+                    ItemAdapter itemAdapter6=new ItemAdapter(getActivity(),dietModels6);
+                    ItemAdapter itemAdapter7=new ItemAdapter(getActivity(),dietModels7);
 
                     res_brkfast.setAdapter(itemAdapter);
                     res_mid_mrng.setAdapter(itemAdapter1);
@@ -231,6 +280,7 @@ public class CurrentDiet extends Fragment {
                     res_evening.setAdapter(itemAdapter4);
                     res_dinner.setAdapter(itemAdapter5);
                     res_waterintake.setAdapter(itemAdapter6);
+                    res_earlymorning.setAdapter(itemAdapter7);
 
                 } catch (JSONException e) {
                     e.printStackTrace();

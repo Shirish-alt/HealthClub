@@ -39,8 +39,8 @@ public class PreviousDiet extends Fragment {
  String access_token="",name,arrname=" ";
     WebView webView;
     String str;
-    List<DietModel> dietModels,dietModels1,dietModels2,dietModels3,dietModels4,dietModels5;
-    RecyclerView res_brkfast,res_mid_mrng,res_lunch,res_afternoon,res_evening,res_dinner;
+    List<DietModel> dietModels,dietModels1,dietModels2,dietModels3,dietModels4,dietModels5,dietModels6,dietModels7;
+    RecyclerView res_brkfast,res_mid_mrng,res_lunch,res_afternoon,res_evening,res_dinner,res_prev_ifyouarehugery,res_prev_earluymorning;
 
     public PreviousDiet(String token) {
         access_token=token;
@@ -57,6 +57,8 @@ public class PreviousDiet extends Fragment {
         res_afternoon=view.findViewById(R.id.res_afternoon);
         res_evening=view.findViewById(R.id.res_evening);
         res_dinner=view.findViewById(R.id.res_dinner);
+        res_prev_ifyouarehugery=view.findViewById(R.id.res_prev_ifyouarehugery);
+        res_prev_earluymorning=view.findViewById(R.id.res_prev_earlymorning);
 
 
 
@@ -79,6 +81,11 @@ public class PreviousDiet extends Fragment {
         res_dinner.setHasFixedSize(true);
         res_dinner.setLayoutManager(new LinearLayoutManager(getActivity()));
 
+        res_prev_ifyouarehugery.setHasFixedSize(true);
+        res_prev_ifyouarehugery.setLayoutManager(new LinearLayoutManager(getActivity()));
+        res_prev_earluymorning.setHasFixedSize(true);
+        res_prev_earluymorning.setLayoutManager(new LinearLayoutManager(getActivity()));
+
 
 
 
@@ -98,6 +105,8 @@ public class PreviousDiet extends Fragment {
         dietModels3=new ArrayList<>();
         dietModels4=new ArrayList<>();
         dietModels5=new ArrayList<>();
+        dietModels6=new ArrayList<>();
+        dietModels6=new ArrayList<>();
 
 
 
@@ -116,6 +125,12 @@ public class PreviousDiet extends Fragment {
                     JSONArray array=new JSONArray(response);
                     for(int i=1;i<=1;i++){
                         JSONObject object= (JSONObject) array.get(1);
+
+                        if(object.equals(null)){
+                            Toast.makeText(getActivity(), "No Data", Toast.LENGTH_SHORT).show();
+                        }
+
+
                         String id=object.getString("id");
                         Log.e("Id",id);
 //JsonObject "diet"
@@ -123,6 +138,7 @@ public class PreviousDiet extends Fragment {
                         JSONObject objectdiet=object.getJSONObject("diet");
                         Log.e("Previous Diet",""+objectdiet);
 //                        JSONArray names=objectdiet.names();
+
 
 
 
