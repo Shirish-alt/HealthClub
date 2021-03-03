@@ -128,6 +128,11 @@ public class MainActivity extends AppCompatActivity {
             MenuItem logout_menu1=sidemenu.findItem(R.id.logout);
             logout_menu1.setVisible(false);
 
+            MenuItem profile_menu1=sidemenu.findItem(R.id.profile);
+            profile_menu1.setVisible(false);
+
+
+
 
 
        }
@@ -137,6 +142,10 @@ public class MainActivity extends AppCompatActivity {
 
             MenuItem logout_menu1=sidemenu.findItem(R.id.logout);
             logout_menu1.setVisible(true);
+
+
+            MenuItem profile=sidemenu.findItem(R.id.profile);
+            profile.setVisible(true);
         }
 
 
@@ -193,6 +202,8 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case  R.id.logout:
                         drawerLayout.closeDrawer(GravityCompat.START);
+                        Intent i=new Intent(new Intent(MainActivity.this,MainActivity.class));
+                        startActivity(i);
                         SessionManagment sessionManagment1=new SessionManagment(MainActivity.this);
                         sessionManagment1.removeSession();
                         Toast.makeText(MainActivity.this, "Removed", Toast.LENGTH_SHORT).show();

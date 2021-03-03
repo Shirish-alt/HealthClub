@@ -124,28 +124,7 @@ public class ProfileActivity extends AppCompatActivity {
         });
 
 
-        /*tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
-        final TableTabAdapter adapter = new TableTabAdapter(this,getSupportFragmentManager(), tabLayout.getTabCount(),access_token);
-        viewPager.setAdapter(adapter);
-
-        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                viewPager.setCurrentItem(tab.getPosition());
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
-        });*/
 
     }
 
@@ -155,6 +134,8 @@ public class ProfileActivity extends AppCompatActivity {
         dataObjectCall.enqueue(new Callback<DataObject>() {
             @Override
             public void onResponse(Call<DataObject> call, Response<DataObject> response) {
+
+                Log.e("ProfileData",""+response);
 
                 UserObject getuser = response.body().getUserObject();
                 UserData userData = response.body().getUserData();
