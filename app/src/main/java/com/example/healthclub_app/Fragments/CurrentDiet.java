@@ -37,11 +37,11 @@ import java.util.Map;
 
 public class CurrentDiet extends Fragment {
 
-String access_token="",name;
-WebView webView;
+    String access_token="",name;
+    WebView webView;
     String str;
-List<DietModel> dietModels,dietModels1,dietModels2,dietModels3,dietModels4,dietModels5;
-RecyclerView res_brkfast,res_mid_mrng,res_lunch,res_afternoon,res_evening,res_dinner;
+    List<DietModel> dietModels,dietModels1,dietModels2,dietModels3,dietModels4,dietModels5;
+    RecyclerView res_brkfast,res_mid_mrng,res_lunch,res_afternoon,res_evening,res_dinner;
     public CurrentDiet(String token) {
         access_token=token;
     }
@@ -86,18 +86,18 @@ RecyclerView res_brkfast,res_mid_mrng,res_lunch,res_afternoon,res_evening,res_di
 
 //     Log.e("TokenDiet:",access_token);
 
-     if(access_token!=null){
-         LoadCurrentDiet(access_token);
-     }else{
-         Toast.makeText(getActivity(), "Please Login", Toast.LENGTH_LONG).show();
+        if(access_token!=null){
+            LoadCurrentDiet(access_token);
+        }else{
+            Toast.makeText(getActivity(), "Please Login", Toast.LENGTH_LONG).show();
 
-     }
-    dietModels=new ArrayList<>();
-    dietModels1=new ArrayList<>();
-    dietModels2=new ArrayList<>();
-    dietModels3=new ArrayList<>();
-    dietModels4=new ArrayList<>();
-    dietModels5=new ArrayList<>();
+        }
+        dietModels=new ArrayList<>();
+        dietModels1=new ArrayList<>();
+        dietModels2=new ArrayList<>();
+        dietModels3=new ArrayList<>();
+        dietModels4=new ArrayList<>();
+        dietModels5=new ArrayList<>();
 
 
 
@@ -121,57 +121,84 @@ RecyclerView res_brkfast,res_mid_mrng,res_lunch,res_afternoon,res_evening,res_di
 
                         JSONObject objectdiet=object.getJSONObject("diet");
 
+                        JSONArray brkarr=objectdiet.getJSONArray("Early_Morning");
+                        if(brkarr != null) {
+                            for (int b = 0; b < brkarr.length(); b++) {
+                                String items = brkarr.getString(b);
 
+                                DietModel model = new DietModel("Early_Morning", "- " + items);
+                                dietModels.add(model);
+                            }
+                        }
 
+                        JSONArray brkarr0=objectdiet.getJSONArray("Breakfast");
+                        if(brkarr0 != null) {
+                            for (int b = 0; b < brkarr0.length(); b++) {
+                                String items = brkarr0.getString(b);
 
-
-                        JSONArray brkarr=objectdiet.getJSONArray("Breakfast");
-
-                        for(int b=0;b<brkarr.length();b++){
-                            String items=brkarr.getString(b);
-
-                            DietModel model=new DietModel("Brackfast","- "+items);
-                            dietModels.add(model);
+                                DietModel model = new DietModel("Breakfast", "- " + items);
+                                dietModels.add(model);
+                            }
                         }
 
                         JSONArray brkarr1=objectdiet.getJSONArray("Mid_Morning_Snack");
-                        for(int b=0;b<brkarr1.length();b++){
-                            String items=brkarr1.getString(b);
+                        if(brkarr1 != null) {
+                            for (int b = 0; b < brkarr1.length(); b++) {
+                                String items = brkarr1.getString(b);
 
-                            DietModel model1=new DietModel("Mid_Morning_Snack","- "+items);
-                            dietModels1.add(model1);
+                                DietModel model1 = new DietModel("Mid_Morning_Snack", "- " + items);
+                                dietModels1.add(model1);
+                            }
                         }
 
                         JSONArray brkarr2=objectdiet.getJSONArray("lunch");
-                        for(int b=0;b<brkarr2.length();b++){
-                            String items=brkarr2.getString(b);
+                        if(brkarr2 != null) {
+                            for (int b = 0; b < brkarr2.length(); b++) {
+                                String items = brkarr2.getString(b);
 
-                            DietModel model=new DietModel("lunch","- "+items);
-                            dietModels2.add(model);
+                                DietModel model = new DietModel("lunch", "- " + items);
+                                dietModels2.add(model);
+                            }
                         }
 
                         JSONArray brkarr3=objectdiet.getJSONArray("Afetnoon_Snack");
-                        for(int b=0;b<brkarr3.length();b++){
-                            String items=brkarr3.getString(b);
+                        if(brkarr3 != null) {
+                            for (int b = 0; b < brkarr3.length(); b++) {
+                                String items = brkarr3.getString(b);
 
-                            DietModel model=new DietModel("Afetnoon_Snack","- "+items);
-                            dietModels3.add(model);
+                                DietModel model = new DietModel("Afetnoon_Snack", "- " + items);
+                                dietModels3.add(model);
+                            }
                         }
 
                         JSONArray brkarr4=objectdiet.getJSONArray("Evening_Snack");
-                        for(int b=0;b<brkarr4.length();b++){
-                            String items=brkarr4.getString(b);
+                        if(brkarr4 != null) {
+                            for (int b = 0; b < brkarr4.length(); b++) {
+                                String items = brkarr4.getString(b);
 
-                            DietModel model=new DietModel("Evening_Snack","- "+items);
-                            dietModels4.add(model);
+                                DietModel model = new DietModel("Evening_Snack", "- " + items);
+                                dietModels4.add(model);
+                            }
                         }
 
                         JSONArray brkarr5=objectdiet.getJSONArray("Dinner");
-                        for(int b=0;b<brkarr5.length();b++){
-                            String items=brkarr5.getString(b);
+                        if(brkarr5 != null) {
+                            for (int b = 0; b < brkarr5.length(); b++) {
+                                String items = brkarr5.getString(b);
 
-                            DietModel model=new DietModel("Dinner","- "+items);
-                            dietModels5.add(model);
+                                DietModel model = new DietModel("Dinner", "- " + items);
+                                dietModels5.add(model);
+                            }
+                        }
+
+                        JSONArray brkarr6=objectdiet.getJSONArray("Water_Intake");
+                        if(brkarr6 != null) {
+                            for (int b = 0; b < brkarr6.length(); b++) {
+                                String items = brkarr6.getString(b);
+
+                                DietModel model = new DietModel("Water_Intake", "- " + items);
+                                dietModels5.add(model);
+                            }
                         }
 
 

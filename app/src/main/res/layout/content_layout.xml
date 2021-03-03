@@ -135,6 +135,122 @@
 
 
 
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            app:cardCornerRadius="10dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+
+                android:orientation="vertical"
+                android:background="@color/profilePrimaryDark"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Weight"
+
+                    android:id="@+id/wtt"
+                    android:textColor="#fff"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:textSize="20sp"
+                    />
+              <LinearLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_below="@id/wtt"
+                  android:weightSum="2">
+                  <TextView
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:text="Lost: 11.60 Kg"
+                      android:gravity="center"
+                      android:layout_weight="1"></TextView>
+                  <TextView
+                      android:layout_width="match_parent"
+                      android:text="Remain: 22.00"
+                      android:gravity="center"
+                      android:layout_height="wrap_content"
+                      android:layout_weight="1"></TextView>
+              </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="3dp"
+                    android:background="#000"></LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fat"
+                    android:textColor="#fff"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:textSize="20sp"
+                    />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_below="@id/wtt"
+                    android:weightSum="2">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Lost: 4.80 Kg"
+                        android:gravity="center"
+                        android:layout_weight="1"></TextView>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:text="Remain: 24.10"
+                        android:gravity="center"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"></TextView>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="3dp"
+                    android:background="#000"></LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Skelton Muscle"
+
+                    android:textColor="#fff"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:textSize="20sp"
+                    />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/wtt"
+                    android:weightSum="2">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Gain:2.00"
+                        android:gravity="center"
+                        android:layout_weight="1"></TextView>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:text="Remain: 08.80"
+                        android:gravity="center"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"></TextView>
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
         <ScrollView android:layout_height="match_parent"
             android:layout_width="match_parent"
             android:scrollbars="horizontal"
@@ -263,125 +379,10 @@
 
             </HorizontalScrollView>
         </ScrollView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            app:cardCornerRadius="10dp">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-
-                android:orientation="vertical"
-                android:background="@color/profilePrimaryDark"
-                >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Weight"
-
-                    android:id="@+id/wtt"
-                    android:textColor="#fff"
-                    android:textStyle="bold"
-                    android:layout_gravity="center"
-                    android:textSize="20sp"
-                    />
-              <LinearLayout
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:layout_below="@id/wtt"
-                  android:weightSum="2">
-                  <TextView
-                      android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:text="Lost: 11.60 Kg"
-                      android:gravity="center"
-                      android:layout_weight="1"></TextView>
-                  <TextView
-                      android:layout_width="match_parent"
-                      android:text="Remain: 22.00"
-                      android:gravity="center"
-                      android:layout_height="wrap_content"
-                      android:layout_weight="1"></TextView>
-              </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_margin="3dp"
-                    android:background="#000"></LinearLayout>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Fat"
-                    android:textColor="#fff"
-                    android:textStyle="bold"
-                    android:layout_gravity="center"
-                    android:textSize="20sp"
-                    />
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
-                    android:layout_below="@id/wtt"
-                    android:weightSum="2">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Lost: 4.80 Kg"
-                        android:gravity="center"
-                        android:layout_weight="1"></TextView>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:text="Remain: 24.10"
-                        android:gravity="center"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"></TextView>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_margin="3dp"
-                    android:background="#000"></LinearLayout>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Skelton Muscle"
-
-                    android:textColor="#fff"
-                    android:textStyle="bold"
-                    android:layout_gravity="center"
-                    android:textSize="20sp"
-                    />
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/wtt"
-                    android:weightSum="2">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Gain:2.00"
-                        android:gravity="center"
-                        android:layout_weight="1"></TextView>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:text="Remain: 08.80"
-                        android:gravity="center"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"></TextView>
-                </LinearLayout>
-
-
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Weight Report"
+            android:text="Weight Loss"
             android:layout_centerHorizontal="true"
             android:layout_margin="5dp"
             android:id="@+id/dt"
@@ -410,7 +411,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="VFAT Report"
+            android:text="V. FAT"
             android:layout_centerHorizontal="true"
             android:layout_margin="5dp"
             android:id="@+id/vt"
@@ -438,7 +439,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="BMI Report"
+            android:text="BMI"
             android:layout_centerHorizontal="true"
             android:layout_margin="5dp"
             android:id="@+id/bt"
@@ -466,7 +467,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Muscle Report"
+            android:text="Muscle"
             android:layout_below="@id/card_bmi"
             android:layout_centerHorizontal="true"
             android:layout_margin="5dp"
@@ -493,7 +494,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Fat Report"
+            android:text="Total Fat"
             android:layout_below="@id/card_musle"
             android:layout_centerHorizontal="true"
             android:layout_margin="5dp"

@@ -38,9 +38,9 @@
 
                 <ImageView
                     android:id="@+id/profilr_image"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/profile_round" />
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:src="@drawable/profile" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -59,6 +59,7 @@
                     android:textStyle="bold"/>
 
                 <RelativeLayout
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -73,7 +74,9 @@
                         android:background="@drawable/profile_bk"/>
 
                     <TextView
+                        android:id="@+id/backbtn"
                         android:text="Back to\nHome"
+                        android:clickable="true"
                         style="@style/profileStyledBackButton" />
                 </RelativeLayout>
 

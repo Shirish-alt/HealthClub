@@ -99,7 +99,7 @@
         app:menu="@menu/side_menu_item"
         app:headerLayout="@layout/nav_header"
         android:layout_gravity="start"
-
+        app:itemTextAppearance="@style/TextAppearance.AppCompat.Medium"
         >
 
     </com.google.android.material.navigation.NavigationView>

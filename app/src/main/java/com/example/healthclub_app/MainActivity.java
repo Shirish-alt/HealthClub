@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
 
         res_posts.setLayoutManager(new LinearLayoutManager(this));
         res_posts.setHasFixedSize(true);
- toolbar.setBackgroundResource(R.color.profilePrimaryDark);
+        toolbar.setBackgroundResource(R.color.profilePrimaryDark);
 
 
 
@@ -87,10 +87,10 @@ public class MainActivity extends AppCompatActivity {
         toggle.syncState();
 
 //        //ArrayLists...
-      promoVidModels=new ArrayList<PromoVidModel>();
-      promoVidModels1=new ArrayList<PromoVidModel>();
-      postModelArrayList=new ArrayList<PostModel>();
-      postModelArrayList1=new ArrayList<PostModel>();
+        promoVidModels=new ArrayList<PromoVidModel>();
+        promoVidModels1=new ArrayList<PromoVidModel>();
+        postModelArrayList=new ArrayList<PostModel>();
+        postModelArrayList1=new ArrayList<PostModel>();
 
         //Video Adapter
 
@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent=new Intent(MainActivity.this, MoreVideosAndPosts.class);
                 intent.putExtra("MoreData","PromoMore");
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+//                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }
         });
@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent=new Intent(MainActivity.this, MoreVideosAndPosts.class);
                 intent.putExtra("MoreData","PostMore");
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+//                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }
         });
@@ -142,39 +142,39 @@ public class MainActivity extends AppCompatActivity {
 
                 switch (item.getItemId()){
                     case R.id.home:
-                        Toast.makeText(MainActivity.this, "Home", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(MainActivity.this, "Home", Toast.LENGTH_SHORT).show();
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
                     case  R.id.diet:
-                       // Toast.makeText(MainActivity.this, "Diet", Toast.LENGTH_SHORT).show();
+                        // Toast.makeText(MainActivity.this, "Diet", Toast.LENGTH_SHORT).show();
                         drawerLayout.closeDrawer(GravityCompat.START);
                         SessionManagment mngt=new SessionManagment(MainActivity.this);
                         String token=mngt.getSession();
                         Intent intent=new Intent(MainActivity.this, Diet.class);
                         intent.putExtra("Token",token);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+//                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(intent);
 
                         break;
                     case  R.id.progress:
-                     //   Toast.makeText(MainActivity.this, "Exercise", Toast.LENGTH_SHORT).show();
+                        //   Toast.makeText(MainActivity.this, "Exercise", Toast.LENGTH_SHORT).show();
 
                         break;
                     case  R.id.profile:
-                        Toast.makeText(MainActivity.this, "Profile", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(MainActivity.this, "Profile", Toast.LENGTH_SHORT).show();
 
                         SessionManagment mngt1=new SessionManagment(MainActivity.this);
                         String token1=mngt1.getSession();
 //                        Log.e("Token",token1);
                         Intent intent1=new Intent(MainActivity.this, ProfileActivity.class);
                         intent1.putExtra("Token",token1);
-                        intent1.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+//                        intent1.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(intent1);
                         drawerLayout.closeDrawer(GravityCompat.START);
 
                         break;
                     case  R.id.login:
-                        Toast.makeText(MainActivity.this, "Login", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(MainActivity.this, "Login", Toast.LENGTH_SHORT).show();
                         drawerLayout.closeDrawer(GravityCompat.START);
 
                         SessionManagment sessionManagment=new SessionManagment(MainActivity.this);
@@ -197,7 +197,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
- //Load videos
+        //Load videos
 
         PromoVideos();
 
@@ -210,24 +210,24 @@ public class MainActivity extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                       // Log.e("Promo-Vid:", response);
+                        // Log.e("Promo-Vid:", response);
 
                         try {
                             JSONObject object=new JSONObject(response);
                             String obj=object.getString("success");
                             if(obj.contains("true")){
 
-            //Vidoes...................
+                                //Vidoes...................
                                 JSONArray arrayVideo=object.getJSONArray("videos");
                                 for(int i=0;i<arrayVideo.length();i++){
-                                        JSONObject object1 =arrayVideo.getJSONObject(i);
+                                    JSONObject object1 =arrayVideo.getJSONObject(i);
 
-                                        vid_id=object1.getString("videoid");
+                                    vid_id=object1.getString("videoid");
                                     vid_title=object1.getString("title");
 
 
-                                        PromoVidModel promoVidModel=new PromoVidModel(vid_id,vid_title);
-                                        promoVidModels.add(promoVidModel);
+                                    PromoVidModel promoVidModel=new PromoVidModel(vid_id,vid_title);
+                                    promoVidModels.add(promoVidModel);
 
 
                                 }
@@ -245,28 +245,28 @@ public class MainActivity extends AppCompatActivity {
 
                                 }
 
-              //Posts...........................................................
-                                 JSONArray arrayPost =object.getJSONArray("posts");
-                                    for(int i1=0;i1<arrayPost.length();i1++){
-                                        JSONObject objectPost=arrayPost.getJSONObject(i1);
+                                //Posts...........................................................
+                                JSONArray arrayPost =object.getJSONArray("posts");
+                                for(int i1=0;i1<arrayPost.length();i1++){
+                                    JSONObject objectPost=arrayPost.getJSONObject(i1);
 
-                                        post_title=objectPost.getString("title");
-                                        post_desc=objectPost.getString("description");
+                                    post_title=objectPost.getString("title");
+                                    post_desc=objectPost.getString("description");
 
-                                        JSONArray arrayImages=objectPost.getJSONArray("images");
-                                          for(int img1=0;img1<arrayImages.length();img1++){
-                                              JSONObject objImg=arrayImages.getJSONObject(img1);
+                                    JSONArray arrayImages=objectPost.getJSONArray("images");
+                                    for(int img1=0;img1<arrayImages.length();img1++){
+                                        JSONObject objImg=arrayImages.getJSONObject(img1);
 
-                                              post_url=objImg.getString("post_image");
-
-
-                                              PostModel postModel=new PostModel(post_url,post_title,post_desc);
-                                              postModelArrayList.add(postModel);
-                                          }
+                                        post_url=objImg.getString("post_image");
 
 
-
+                                        PostModel postModel=new PostModel(post_url,post_title,post_desc);
+                                        postModelArrayList.add(postModel);
                                     }
+
+
+
+                                }
 
 
 
@@ -274,14 +274,18 @@ public class MainActivity extends AppCompatActivity {
 
                             //postAdapter
 
-                            homePostAdapter = new HomePostAdapter(MainActivity.this,postModelArrayList);
-                            res_posts.setAdapter(homePostAdapter);
-
+                            if(postModelArrayList.size() > 0) {
+                                homePostAdapter = new HomePostAdapter(MainActivity.this, postModelArrayList);
+                                res_posts.setAdapter(homePostAdapter);
+                            }
 
                             //VideoAdapter
-                            promoVidAdapter = new PromoVidAdapter(MainActivity.this,promoVidModels);
-                            promoVidAdapter1 = new PromoVidAdapter(MainActivity.this,promoVidModels1);
-                            recyclerView.setAdapter(promoVidAdapter1);
+//                            promoVidAdapter = new PromoVidAdapter(MainActivity.this,promoVidModels);
+                            if(promoVidModels1.size() > 0)
+                            {
+                                promoVidAdapter1 = new PromoVidAdapter(MainActivity.this,promoVidModels1);
+                                recyclerView.setAdapter(promoVidAdapter1);
+                            }
 
                         } catch (JSONException e) {
                             e.printStackTrace();

@@ -11,7 +11,7 @@
     <color name="green">#CDDC39</color>
 
     <!--colors for profile-->
-    <color name="profilePrimaryDark">#FF3B30</color>
+    <color name="profilePrimaryDark">#CB796E</color>
     <color name="profileAccentColor">#F7F7F7</color>
     <color name="whiteTextColor">#fff</color>
     <color name="profileBackground">#fff</color>
@@ -24,4 +24,6 @@
 
     <!--colros for card-->
     <color name="whiteCardColor">#fff</color>
+    <color name="skyblue">#B3C0E6</color>
+    <color name="bgcolor">#83E347</color>
 </resources>

@@ -38,24 +38,25 @@ public class HomePostAdapter extends RecyclerView.Adapter<HomePostAdapter.PostHo
 
     @Override
     public void onBindViewHolder(@NonNull PostHolder holder, int position) {
+
         PostModel postModel=postModelList.get(position);
 
         Glide.with(context)
                 .load(postModel.getImgUrl())
                 .into(holder.postimg);
         holder.posttitle.setText(postModel.getTitle());
-       holder.cardView.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-     PostData postData=new PostData(postModel.getImgUrl(),postModel.getTitle(),postModel.getDescription());
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PostData postData=new PostData(postModel.getImgUrl(),postModel.getTitle(),postModel.getDescription());
 
-               Intent intent=new Intent(context, Postdetails.class);
-               intent.putExtra("PostData",postData);
-               intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
-               context.startActivity(intent);
+                Intent intent=new Intent(context, Postdetails.class);
+                intent.putExtra("PostData",postData);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
 
-           }
-       });
+            }
+        });
     }
 
     @Override
