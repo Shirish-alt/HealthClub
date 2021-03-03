@@ -109,7 +109,7 @@ public class LoginScreen extends AppCompatActivity {
                                 if(code.contains("200")){
                                     JSONObject userObj=object.getJSONObject("user");
 
-                                    String user=userObj.getString("username");
+                                    String user=userObj.getString("email");
                                      access_token=userObj.getString("token");
 
 
