@@ -141,6 +141,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            app:cardBackgroundColor="@color/profilePrimaryDark"
             app:cardCornerRadius="10dp">
             <LinearLayout
                 android:layout_width="match_parent"
@@ -184,7 +185,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_margin="3dp"
-                    android:background="#000"></LinearLayout>
+                    android:background="#fff"></LinearLayout>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -217,7 +218,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_margin="3dp"
-                    android:background="#000"></LinearLayout>
+                    android:background="#fff"></LinearLayout>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

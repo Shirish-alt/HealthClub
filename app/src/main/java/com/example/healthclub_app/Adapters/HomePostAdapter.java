@@ -61,7 +61,7 @@ public class HomePostAdapter extends RecyclerView.Adapter<HomePostAdapter.PostHo
 
     @Override
     public int getItemCount() {
-        return postModelList.size();
+        return 3;
     }
 
     public class  PostHolder extends  RecyclerView.ViewHolder{

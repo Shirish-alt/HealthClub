@@ -51,12 +51,12 @@ public class MoreVideosAndPosts extends AppCompatActivity {
         moredata=getIntent().getStringExtra("MoreData");
 
         if(moredata.contains("PromoMore")){
-            Toast.makeText(this, "More Videos", Toast.LENGTH_SHORT).show();
+          //  Toast.makeText(this, "More Videos", Toast.LENGTH_SHORT).show();
 
             LoadDataFromServer(moredata);
 
         }else  if(moredata.contains("PostMore")){
-            Toast.makeText(this, "More Posts", Toast.LENGTH_SHORT).show();
+           // Toast.makeText(this, "More Posts", Toast.LENGTH_SHORT).show();
 
 
             LoadDataFromServer(moredata);

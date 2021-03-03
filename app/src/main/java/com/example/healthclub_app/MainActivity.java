@@ -11,10 +11,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle toggle;
     Toolbar toolbar;
+    ImageView refresh;
     RecyclerView recyclerView,res_posts;
     ArrayList<PromoVidModel> promoVidModels,promoVidModels1;
     ArrayList<PostModel> postModelArrayList,postModelArrayList1;
@@ -69,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
 
         promo_more=findViewById(R.id.promo_more);
         post_more=findViewById(R.id.post_more);
+        refresh=findViewById(R.id.refresh);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
         recyclerView.setHasFixedSize(true);
@@ -84,6 +90,17 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout.addDrawerListener(toggle);
         navigationView.setItemIconTintList(null);
 
+
+
+        refresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                StartAnimation();
+
+                LoadData();
+            }
+        });
+
         toggle.syncState();
 
 //        //ArrayLists...
@@ -93,6 +110,8 @@ public class MainActivity extends AppCompatActivity {
         postModelArrayList1=new ArrayList<PostModel>();
 
         //Video Adapter
+
+
 
 
         promo_more.setOnClickListener(new View.OnClickListener() {
@@ -220,9 +239,29 @@ public class MainActivity extends AppCompatActivity {
         });
         //Load videos
 
+
+
         PromoVideos();
 
 
+    }
+    private void LoadData(){
+
+       final Handler handler=new Handler();
+        final Runnable runnable=new Runnable() {
+            @Override
+            public void run() {
+                Log.e("Called","Called");
+                Toast.makeText(MainActivity.this, "Done", Toast.LENGTH_SHORT).show();
+                PromoVideos();
+            }
+        };
+        handler.postDelayed(runnable,3000);
+    }
+
+    private void StartAnimation(){
+        Animation animation= AnimationUtils.loadAnimation(this,R.anim.anim);
+        refresh.startAnimation(animation);
     }
 
     private void PromoVideos() {
@@ -231,7 +270,7 @@ public class MainActivity extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        // Log.e("Promo-Vid:", response);
+                         Log.e("Promo-Vid:", response);
 
                         try {
                             JSONObject object=new JSONObject(response);
@@ -322,4 +361,6 @@ public class MainActivity extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
         queue.add(stringRequest);
     }
+
+
 }

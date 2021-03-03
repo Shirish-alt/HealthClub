@@ -137,7 +137,11 @@ public class ProfileActivity extends AppCompatActivity {
 
                 Log.e("ProfileData",""+response);
 
+
+
                 UserObject getuser = response.body().getUserObject();
+
+
                 UserData userData = response.body().getUserData();
                 //Profile
                 profile_title.setText(getuser.getUsername());
