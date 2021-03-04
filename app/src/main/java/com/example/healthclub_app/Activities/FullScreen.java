@@ -34,9 +34,9 @@ public class FullScreen extends YouTubeBaseActivity{
                 if(!b){
                     youTubePlayer.loadVideo( url );
 
-                    youTubePlayer.setPlayerStyle( YouTubePlayer.PlayerStyle.DEFAULT );
-                    youTubePlayer.setFullscreen(true);
-                    youTubePlayer.play();
+//                    youTubePlayer.setPlayerStyle( YouTubePlayer.PlayerStyle.DEFAULT );
+//                    youTubePlayer.setFullscreen(true);
+//                    youTubePlayer.play();
 
                 }
             }
