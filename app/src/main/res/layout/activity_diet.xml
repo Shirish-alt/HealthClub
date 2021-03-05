@@ -13,7 +13,7 @@
         app:tabTextColor="#fff"
         app:tabSelectedTextColor="#000"
         app:tabIndicatorColor="#fff"
-        android:background="@color/profilePrimaryDark">
+        android:background="#6ACA6E">
     </com.google.android.material.tabs.TabLayout>
 
     <androidx.viewpager.widget.ViewPager

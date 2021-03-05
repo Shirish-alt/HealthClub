@@ -24,7 +24,7 @@
         <RelativeLayout style="@style/profileDetailsLayout">
             <ImageView
                 android:id="@+id/nameImageView"
-                android:src="@drawable/ic_name"
+                android:src="@drawable/person"
                 style="@style/profileDetailsImage" />
 
             <TextView
@@ -47,7 +47,7 @@
         <RelativeLayout style="@style/profileDetailsLayout">
             <ImageView
                 android:id="@+id/mobileImageView"
-                android:src="@drawable/ic_mobile"
+                android:src="@drawable/phone"
                 style="@style/profileDetailsImage" />
 
             <TextView
@@ -69,7 +69,7 @@
         <RelativeLayout style="@style/profileDetailsLayout">
             <ImageView
                 android:id="@+id/emailImageView"
-                android:src="@drawable/ic_email"
+                android:src="@drawable/ic_baseline_mail_outline_24"
                 style="@style/profileDetailsImage" />
 
             <TextView
@@ -91,7 +91,7 @@
         <RelativeLayout style="@style/profileDetailsLayout">
             <ImageView
                 android:id="@+id/addressImageView"
-                android:src="@drawable/ic_address"
+                android:src="@drawable/ic_baseline_home_24"
                 style="@style/profileDetailsImage" />
 
             <TextView
@@ -113,7 +113,7 @@
         <RelativeLayout style="@style/profileDetailsLayout">
             <ImageView
                 android:id="@+id/dobImageView"
-                android:src="@drawable/ic_dob"
+                android:src="@drawable/ic_baseline_calendar_today_24"
                 style="@style/profileDetailsImage" />
 
             <TextView
@@ -148,7 +148,7 @@
                 android:layout_margin="5dp"
 
                 android:orientation="vertical"
-                android:background="@color/profilePrimaryDark"
+                android:background="#80E46E"
                 >
                 <TextView
                     android:layout_width="wrap_content"
@@ -156,7 +156,7 @@
                     android:text="Weight"
 
                     android:id="@+id/wtt"
-                    android:textColor="#fff"
+                    android:textColor="#000"
                     android:textStyle="bold"
                     android:layout_gravity="center"
                     android:textSize="20sp"
@@ -171,11 +171,14 @@
                       android:layout_height="wrap_content"
                       android:text="Lost: 11.60 Kg"
                       android:gravity="center"
+                      android:textColor="#000"
                       android:layout_weight="1"></TextView>
                   <TextView
                       android:layout_width="match_parent"
                       android:text="Remain: 22.00"
                       android:gravity="center"
+                      android:textColor="#000"
+
                       android:layout_height="wrap_content"
                       android:layout_weight="1"></TextView>
               </LinearLayout>
@@ -189,7 +192,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Fat"
-                    android:textColor="#fff"
+                    android:textColor="#000"
                     android:textStyle="bold"
                     android:layout_gravity="center"
                     android:textSize="20sp"
@@ -205,11 +208,15 @@
                         android:layout_height="wrap_content"
                         android:text="Lost: 4.80 Kg"
                         android:gravity="center"
+                        android:textColor="#000"
+
                         android:layout_weight="1"></TextView>
                     <TextView
                         android:layout_width="match_parent"
                         android:text="Remain: 24.10"
                         android:gravity="center"
+                        android:textColor="#000"
+
                         android:layout_height="wrap_content"
                         android:layout_weight="1"></TextView>
                 </LinearLayout>
@@ -223,7 +230,7 @@
                     android:layout_height="wrap_content"
                     android:text="Skelton Muscle"
 
-                    android:textColor="#fff"
+                    android:textColor="#000"
                     android:textStyle="bold"
                     android:layout_gravity="center"
                     android:textSize="20sp"
@@ -237,11 +244,15 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Gain:2.00"
+                        android:textColor="#000"
+
                         android:gravity="center"
                         android:layout_weight="1"></TextView>
                     <TextView
                         android:layout_width="match_parent"
                         android:text="Remain: 08.80"
+                        android:textColor="#000"
+
                         android:gravity="center"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"></TextView>
@@ -253,24 +264,20 @@
 
         <ScrollView android:layout_height="match_parent"
             android:layout_width="match_parent"
-            android:scrollbars="horizontal"
-            xmlns:android="http://schemas.android.com/apk/res/android">
+            android:scrollbars="horizontal">
             <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                    xmlns:tools="http://schemas.android.com/tools"
+                <TableLayout
                     android:layout_width="match_parent"
-                    android:stretchColumns="1,2,3,4,5,6,7,8,9"
+                    android:stretchColumns="1,2,3,4,5,6,7,8"
                     android:layout_height="match_parent"
-
-                    android:layout_margin="8dp"
-                    >
+                    android:layout_margin="8dp">
 
                     <TableRow android:layout_width="0dp"
                         android:padding="5dp"
-                        android:background="#F44336">
+                        android:background="#000">
 
                         <TextView
                             android:text="Date"
@@ -351,16 +358,6 @@
                             android:textStyle="bold"
                             android:padding="2dp"
                             android:layout_weight="1"
-                            android:gravity="center"
-                            android:textColor="#fff"
-                            android:layout_width="90dp"
-                            android:layout_column="1"
-                            />
-                        <TextView
-                            android:text="Type"
-                            android:textStyle="bold"
-                            android:layout_weight="1"
-                            android:padding="2dp"
                             android:gravity="center"
                             android:textColor="#fff"
                             android:layout_width="90dp"
