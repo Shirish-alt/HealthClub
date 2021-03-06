@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -18,6 +19,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.healthclub_app.MainActivity;
+import com.example.healthclub_app.Models.Profile.Progress;
 import com.example.healthclub_app.Models.User;
 import com.example.healthclub_app.R;
 import com.example.healthclub_app.SessionManagment;
@@ -36,6 +38,7 @@ public class LoginScreen extends AppCompatActivity {
     Button login;
     EditText user,pass;
     String access_token;
+    ProgressBar progress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +47,7 @@ public class LoginScreen extends AppCompatActivity {
 
         user=findViewById(R.id.editTextEmail);
         pass=findViewById(R.id.editTextPassword);
+        progress=findViewById(R.id.progress);
 
         login=findViewById(R.id.cirLoginButton);
 
@@ -55,7 +59,7 @@ public class LoginScreen extends AppCompatActivity {
                 String passs=pass.getText().toString().trim();
 
 
-
+                   progress.setVisibility(View.VISIBLE);
                  UserLogin(users,passs);
 
 
@@ -107,6 +111,7 @@ public class LoginScreen extends AppCompatActivity {
                             if(status.contains("true")){
                                 String code=object.getString("status_code");
                                 if(code.contains("200")){
+                                    progress.setVisibility(View.GONE);
                                     JSONObject userObj=object.getJSONObject("user");
 
                                     String user=userObj.getString("email");
@@ -140,6 +145,7 @@ public class LoginScreen extends AppCompatActivity {
 
                         } catch (JSONException e) {
                             e.printStackTrace();
+                            progress.setVisibility(View.GONE);
                         }
 
 
@@ -147,6 +153,7 @@ public class LoginScreen extends AppCompatActivity {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                progress.setVisibility(View.GONE);
                 Toast.makeText(LoginScreen.this, "Err:"+error.toString(), Toast.LENGTH_SHORT).show();
 
             }
@@ -183,6 +190,7 @@ public class LoginScreen extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+
 
         startActivity(new Intent(getApplicationContext(),MainActivity.class));
     }
