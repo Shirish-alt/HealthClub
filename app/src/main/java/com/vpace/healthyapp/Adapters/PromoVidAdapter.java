@@ -59,7 +59,7 @@ public class PromoVidAdapter  extends RecyclerView.Adapter<PromoVidAdapter.Promo
 
     @Override
     public int getItemCount() {
-        return vidList.size();
+        return 3;
     }
 
     public class PromoHolder extends  RecyclerView.ViewHolder{
