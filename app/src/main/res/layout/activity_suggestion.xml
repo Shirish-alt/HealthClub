@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:orientation="vertical"
+    tools:context=".Activities.Suggestion">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/rel1"
+        android:visibility="gone"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/suggestion_title"
+        android:text="Prathmesh Yerva"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:textColor="#000"
+        android:textStyle="bold"
+        android:textSize="25sp"></TextView>
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/suggestion_title"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:id="@+id/suggetion_box"
+        android:overScrollMode="always"
+        android:scrollbarStyle="insideInset"
+        android:scrollbars="vertical"
+        android:background="@drawable/roundbox"
+        android:hint="Drop your suggestion"
+        ></EditText>
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/submit_btn"
+        android:background="@drawable/roundbox"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="Submit"
+        android:layout_below="@+id/suggetion_box"></Button>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/rel2"
+        android:layout_height="match_parent"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Please Login"
+            android:layout_centerInParent="true"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="@color/profilePrimaryDark"></TextView>
+    </RelativeLayout>
+
+
+</LinearLayout>

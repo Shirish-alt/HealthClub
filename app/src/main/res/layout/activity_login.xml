@@ -12,7 +12,7 @@
             android:layout_width="wrap_content"
             android:layout_height="150dp"
             android:background="@color/white"
-                android:src="@drawable/healthfit"/>
+                android:src="@drawable/logoapp"/>
 
         <include layout="@layout/layout_login"/>
 

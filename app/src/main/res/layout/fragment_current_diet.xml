@@ -16,7 +16,7 @@
             android:text="Early Morning"
             android:textSize="24dp"
             android:textStyle="bold"
-            android:textColor="#03A9F4">
+            android:textColor="#686B6C">
 
         </TextView>
         <LinearLayout
@@ -36,7 +36,7 @@
             android:text="Breakfast"
             android:textSize="24dp"
             android:textStyle="bold"
-            android:textColor="#03A9F4">
+            android:textColor="#686B6C">
 
         </TextView>
         <LinearLayout
@@ -56,7 +56,7 @@
             android:text="Mid Morning Snack"
             android:textSize="24dp"
             android:textStyle="bold"
-            android:textColor="#03A9F4"
+            android:textColor="#686B6C"
             ></TextView>
         <LinearLayout
             android:layout_width="match_parent"
@@ -74,7 +74,7 @@
             android:text="Lunch"
             android:textSize="24dp"
             android:textStyle="bold"
-            android:textColor="#03A9F4"
+            android:textColor="#686B6C"
             ></TextView>
         <LinearLayout
             android:layout_width="match_parent"
@@ -90,7 +90,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Afternoon Snack"
-            android:textColor="#03A9F4"
+            android:textColor="#686B6C"
             android:textSize="24dp"
             android:textStyle="bold"
             ></TextView>
@@ -109,7 +109,7 @@
             android:text="Evening Snack"
             android:textSize="24dp"
             android:textStyle="bold"
-            android:textColor="#03A9F4"
+            android:textColor="#686B6C"
             ></TextView>
         <LinearLayout
             android:layout_width="match_parent"
@@ -123,7 +123,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Dinner"
-            android:textColor="#03A9F4"
+            android:textColor="#686B6C"
             android:textSize="24dp"
             android:textStyle="bold"
             ></TextView>
@@ -140,7 +140,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="If you are hungry"
-            android:textColor="#03A9F4"
+            android:textColor="#686B6C"
             android:textSize="24dp"
             android:textStyle="bold"
             ></TextView>

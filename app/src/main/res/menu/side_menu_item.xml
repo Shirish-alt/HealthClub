@@ -14,7 +14,7 @@
 <!--        android:title="Progress"/>-->
     <item android:id="@+id/profile"
         android:icon="@drawable/profile"
-        android:title="Profile"/>
+        android:title="Health Report"/>
 
     <item android:id="@+id/login"
         android:icon="@drawable/login"
@@ -23,6 +23,10 @@
     <item android:id="@+id/logout"
         android:icon="@drawable/arrow"
         android:title="Logout"/>
+
+    <item android:id="@+id/suggetion"
+        android:icon="@drawable/suggetion"
+        android:title="Suggestion"/>
 
 
 
