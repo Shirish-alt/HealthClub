@@ -61,4 +61,12 @@
         android:text="@string/login_signup_hint"
         android:layout_marginTop="@dimen/loginViewsMargin"/>
 
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:visibility="gone"
+        android:id="@+id/progress"></ProgressBar>
+
 </LinearLayout>

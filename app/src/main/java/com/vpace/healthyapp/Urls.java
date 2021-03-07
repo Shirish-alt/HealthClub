@@ -16,4 +16,7 @@ public class Urls {
     //Diet Url
 
     public  static final  String Diet_Url="http://healthylifestylesclub.co.in/jet/api/diet";
+
+    //Suggestion Url
+    public  static final  String suggestion_Url="http://healthylifestylesclub.co.in/jet/api/suggestion";
 }

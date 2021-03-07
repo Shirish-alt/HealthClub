@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -34,6 +35,7 @@ public class LoginScreen extends AppCompatActivity {
     Button login;
     EditText user,pass;
     String access_token;
+    ProgressBar progress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,7 @@ public class LoginScreen extends AppCompatActivity {
 
         user=findViewById(R.id.editTextEmail);
         pass=findViewById(R.id.editTextPassword);
+        progress=findViewById(R.id.progress);
 
         login=findViewById(R.id.cirLoginButton);
 
@@ -53,7 +56,7 @@ public class LoginScreen extends AppCompatActivity {
                 String passs=pass.getText().toString().trim();
 
 
-
+                   progress.setVisibility(View.VISIBLE);
                  UserLogin(users,passs);
 
 
@@ -74,10 +77,10 @@ public class LoginScreen extends AppCompatActivity {
     }
 
     private void CheckSession(){
-        SessionManagment sessionManagment=new SessionManagment(LoginScreen.this);
-        String userLogged=sessionManagment.getSession();
-
-        if(userLogged!=null){
+    SessionManagment    sessionManagment=new SessionManagment(LoginScreen.this);
+        HashMap<String,String> map=sessionManagment.getSession();
+        String token=map.get(SessionManagment.KEY_TOKEN);
+        if(token!=null){
 
             MoveToMainScreen();
         }else{
@@ -105,21 +108,26 @@ public class LoginScreen extends AppCompatActivity {
                             if(status.contains("true")){
                                 String code=object.getString("status_code");
                                 if(code.contains("200")){
+                                    progress.setVisibility(View.GONE);
                                     JSONObject userObj=object.getJSONObject("user");
 
-                                    String user=userObj.getString("email");
+                                    String username=userObj.getString("email");
                                      access_token=userObj.getString("token");
+                                     String name=userObj.getString("username");
 
 
-                                    Log.e("Access",access_token+" "+user);
+                                    Log.e("Access",access_token+" "+name+""+username);
 
 
 
-                                    if(users.contains(user)){
-                                        User userData=new User(access_token,user);
+                                    if(users.contains(username)){
+                                        //User userData=new User(access_token,user);
+
+
                                         Toast.makeText(LoginScreen.this, "Success", Toast.LENGTH_SHORT).show();
-                                        SessionManagment sessionManagment=new SessionManagment(LoginScreen.this);
-                                        sessionManagment.saveSession(userData);
+                                        SessionManagment sessionManagment1=new SessionManagment(LoginScreen.this);
+                                        sessionManagment1.saveSession(access_token,username,name);
+
 
 
                                         MoveToMainScreen();
@@ -138,6 +146,7 @@ public class LoginScreen extends AppCompatActivity {
 
                         } catch (JSONException e) {
                             e.printStackTrace();
+                            progress.setVisibility(View.GONE);
                         }
 
 
@@ -145,6 +154,7 @@ public class LoginScreen extends AppCompatActivity {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                progress.setVisibility(View.GONE);
                 Toast.makeText(LoginScreen.this, "Err:"+error.toString(), Toast.LENGTH_SHORT).show();
 
             }
@@ -181,6 +191,7 @@ public class LoginScreen extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+
 
         startActivity(new Intent(getApplicationContext(),MainActivity.class));
     }

@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+<<<<<<< HEAD:app/src/main/java/com/vpace/healthyapp/MainActivity.java
+=======
 import android.os.Handler;
 import android.util.Log;
 import android.view.Menu;
@@ -32,6 +34,7 @@ import com.vpace.healthyapp.Activities.Diet;
 import com.vpace.healthyapp.Activities.LoginScreen;
 import com.vpace.healthyapp.Activities.MoreVideosAndPosts;
 import com.vpace.healthyapp.Activities.ProfileActivity;
+import com.vpace.healthyapp.Activities.Suggestion;
 import com.vpace.healthyapp.Adapters.HomePostAdapter;
 import com.vpace.healthyapp.Adapters.PromoVidAdapter;
 import com.vpace.healthyapp.Models.PostModel;
@@ -43,6 +46,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -135,7 +139,8 @@ public class MainActivity extends AppCompatActivity {
 
 
         sessionManagment=new SessionManagment(MainActivity.this);
-        String token=sessionManagment.getSession();
+        HashMap<String,String> map=sessionManagment.getSession();
+        String token=map.get(SessionManagment.KEY_TOKEN);
 
 
 
@@ -186,7 +191,9 @@ public class MainActivity extends AppCompatActivity {
                         // Toast.makeText(MainActivity.this, "Diet", Toast.LENGTH_SHORT).show();
                         drawerLayout.closeDrawer(GravityCompat.START);
                         SessionManagment mngt=new SessionManagment(MainActivity.this);
-                        String token=mngt.getSession();
+                        sessionManagment=new SessionManagment(MainActivity.this);
+                        HashMap<String,String> map=sessionManagment.getSession();
+                        String token=map.get(SessionManagment.KEY_TOKEN);
                         Intent intent=new Intent(MainActivity.this, Diet.class);
                         intent.putExtra("Token",token);
 //                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -200,11 +207,13 @@ public class MainActivity extends AppCompatActivity {
                     case  R.id.profile:
 //                        Toast.makeText(MainActivity.this, "Profile", Toast.LENGTH_SHORT).show();
 
-                        SessionManagment mngt1=new SessionManagment(MainActivity.this);
-                        String token1=mngt1.getSession();
+                        sessionManagment=new SessionManagment(MainActivity.this);
+                        sessionManagment=new SessionManagment(MainActivity.this);
+                        HashMap<String,String> map2=sessionManagment.getSession();
+                        String token2=map2.get(SessionManagment.KEY_TOKEN);
 //                        Log.e("Token",token1);
                         Intent intent1=new Intent(MainActivity.this, ProfileActivity.class);
-                        intent1.putExtra("Token",token1);
+                        intent1.putExtra("Token",token2);
 //                        intent1.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(intent1);
                         drawerLayout.closeDrawer(GravityCompat.START);
@@ -233,6 +242,12 @@ public class MainActivity extends AppCompatActivity {
 
 
                         break;
+
+                    case R.id.suggetion:
+                        drawerLayout.closeDrawer(GravityCompat.START);
+                        Intent i2=new Intent(new Intent(MainActivity.this, Suggestion.class));
+                        startActivity(i2);
+
                 }
                 return true;
             }
