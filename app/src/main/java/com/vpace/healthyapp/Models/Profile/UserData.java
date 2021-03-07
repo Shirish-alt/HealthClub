@@ -1,55 +1,126 @@
+
 package com.vpace.healthyapp.Models.Profile;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class UserData {
 
+    @SerializedName("id")
+    @Expose
+    private Integer id;
     @SerializedName("user_id")
-    int user_id;
-
+    @Expose
+    private String userId;
     @SerializedName("gender")
-    String Gender;
+    @Expose
+    private String gender;
     @SerializedName("address")
-   String Address;
+    @Expose
+    private String address;
     @SerializedName("city")
-   String city;
+    @Expose
+    private String city;
     @SerializedName("state")
-    String state;
-
+    @Expose
+    private String state;
+    @SerializedName("postal_code")
+    @Expose
+    private String postalCode;
+    @SerializedName("profession")
+    @Expose
+    private String profession;
+    @SerializedName("work_hours")
+    @Expose
+    private String workHours;
     @SerializedName("dob")
-    String dob;
+    @Expose
+    private String dob;
+    @SerializedName("exercise")
+    @Expose
+    private String exercise;
+    @SerializedName("water")
+    @Expose
+    private String water;
+    @SerializedName("smoking")
+    @Expose
+    private String smoking;
+    @SerializedName("alcohol")
+    @Expose
+    private String alcohol;
+    @SerializedName("tea_coffee")
+    @Expose
+    private String teaCoffee;
+    @SerializedName("softdrinks")
+    @Expose
+    private String softdrinks;
+    @SerializedName("milk")
+    @Expose
+    private String milk;
+    @SerializedName("breakfast")
+    @Expose
+    private String breakfast;
+    @SerializedName("lunch")
+    @Expose
+    private String lunch;
+    @SerializedName("snacks")
+    @Expose
+    private String snacks;
+    @SerializedName("dinner")
+    @Expose
+    private String dinner;
+    @SerializedName("age")
+    @Expose
+    private String age;
+    @SerializedName("height")
+    @Expose
+    private String height;
+    @SerializedName("medication")
+    @Expose
+    private String medication;
+    @SerializedName("discomforts")
+    @Expose
+    private String discomforts;
+    @SerializedName("created_at")
+    @Expose
+    private String createdAt;
+    @SerializedName("updated_at")
+    @Expose
+    private String updatedAt;
+    @SerializedName("subscription_plan")
+    @Expose
+    private String subscriptionPlan;
 
-    public UserData(int user_id, String gender, String address, String city, String state, String dob) {
-        this.user_id = user_id;
-        Gender = gender;
-        Address = address;
-        this.city = city;
-        this.state = state;
-        this.dob = dob;
+    public Integer getId() {
+        return id;
     }
 
-    public int getUser_id() {
-        return user_id;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getGender() {
-        return Gender;
+        return gender;
     }
 
     public void setGender(String gender) {
-        Gender = gender;
+        this.gender = gender;
     }
 
     public String getAddress() {
-        return Address;
+        return address;
     }
 
     public void setAddress(String address) {
-        Address = address;
+        this.address = address;
     }
 
     public String getCity() {
@@ -68,6 +139,30 @@ public class UserData {
         this.state = state;
     }
 
+    public String getPostalCode() {
+        return postalCode;
+    }
+
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
+    }
+
+    public String getProfession() {
+        return profession;
+    }
+
+    public void setProfession(String profession) {
+        this.profession = profession;
+    }
+
+    public String getWorkHours() {
+        return workHours;
+    }
+
+    public void setWorkHours(String workHours) {
+        this.workHours = workHours;
+    }
+
     public String getDob() {
         return dob;
     }
@@ -75,4 +170,149 @@ public class UserData {
     public void setDob(String dob) {
         this.dob = dob;
     }
+
+    public String getExercise() {
+        return exercise;
+    }
+
+    public void setExercise(String exercise) {
+        this.exercise = exercise;
+    }
+
+    public String getWater() {
+        return water;
+    }
+
+    public void setWater(String water) {
+        this.water = water;
+    }
+
+    public String getSmoking() {
+        return smoking;
+    }
+
+    public void setSmoking(String smoking) {
+        this.smoking = smoking;
+    }
+
+    public String getAlcohol() {
+        return alcohol;
+    }
+
+    public void setAlcohol(String alcohol) {
+        this.alcohol = alcohol;
+    }
+
+    public String getTeaCoffee() {
+        return teaCoffee;
+    }
+
+    public void setTeaCoffee(String teaCoffee) {
+        this.teaCoffee = teaCoffee;
+    }
+
+    public String getSoftdrinks() {
+        return softdrinks;
+    }
+
+    public void setSoftdrinks(String softdrinks) {
+        this.softdrinks = softdrinks;
+    }
+
+    public String getMilk() {
+        return milk;
+    }
+
+    public void setMilk(String milk) {
+        this.milk = milk;
+    }
+
+    public String getBreakfast() {
+        return breakfast;
+    }
+
+    public void setBreakfast(String breakfast) {
+        this.breakfast = breakfast;
+    }
+
+    public String getLunch() {
+        return lunch;
+    }
+
+    public void setLunch(String lunch) {
+        this.lunch = lunch;
+    }
+
+    public String getSnacks() {
+        return snacks;
+    }
+
+    public void setSnacks(String snacks) {
+        this.snacks = snacks;
+    }
+
+    public String getDinner() {
+        return dinner;
+    }
+
+    public void setDinner(String dinner) {
+        this.dinner = dinner;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    public String getHeight() {
+        return height;
+    }
+
+    public void setHeight(String height) {
+        this.height = height;
+    }
+
+    public String getMedication() {
+        return medication;
+    }
+
+    public void setMedication(String medication) {
+        this.medication = medication;
+    }
+
+    public String getDiscomforts() {
+        return discomforts;
+    }
+
+    public void setDiscomforts(String discomforts) {
+        this.discomforts = discomforts;
+    }
+
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public String getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public String getSubscriptionPlan() {
+        return subscriptionPlan;
+    }
+
+    public void setSubscriptionPlan(String subscriptionPlan) {
+        this.subscriptionPlan = subscriptionPlan;
+    }
+
 }

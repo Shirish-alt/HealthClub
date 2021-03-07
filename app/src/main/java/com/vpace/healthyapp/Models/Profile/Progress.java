@@ -1,51 +1,75 @@
+
 package com.vpace.healthyapp.Models.Profile;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Progress {
 
-    @SerializedName("weight")
-    String weight;
-
-    @SerializedName("vfat")
-    String vfat;
-
-    @SerializedName("tsf")
-    String tsf;
-
-    @SerializedName("totalfatpercent")
-    String totalfatpercent;
-
-    @SerializedName("metabolicage")
-    String metabolicage;
-
-    @SerializedName("bmi")
-    String bmi;
-
-    @SerializedName("bmr")
-    String bmr;
-
-    @SerializedName("musclepercent")
-    String musclepercent;
-    @SerializedName("type")
-    String weektype;
-
-    @SerializedName("created_date")
-    String created_date;
+    @SerializedName("id")
+    @Expose
+    private Integer id;
+    @SerializedName("user_id")
+    @Expose
+    private String userId;
     @SerializedName("edate")
-    String edate;
+    @Expose
+    private String edate;
+    @SerializedName("weight")
+    @Expose
+    private String weight;
+    @SerializedName("vfat")
+    @Expose
+    private String vfat;
+    @SerializedName("tsf")
+    @Expose
+    private String tsf;
+    @SerializedName("totalfatpercent")
+    @Expose
+    private String totalfatpercent;
+    @SerializedName("metabolicage")
+    @Expose
+    private String metabolicage;
+    @SerializedName("bmi")
+    @Expose
+    private String bmi;
+    @SerializedName("bmr")
+    @Expose
+    private String bmr;
+    @SerializedName("musclepercent")
+    @Expose
+    private String musclepercent;
+    @SerializedName("type")
+    @Expose
+    private String type;
+    @SerializedName("created_at")
+    @Expose
+    private String createdAt;
+    @SerializedName("updated_at")
+    @Expose
+    private String updatedAt;
 
-    public Progress(String weight, String vfat, String tsf, String totalfatpercent, String metabolicage, String bmi, String bmr, String musclepercent, String weektype, String created_date, String edate) {
-        this.weight = weight;
-        this.vfat = vfat;
-        this.tsf = tsf;
-        this.totalfatpercent = totalfatpercent;
-        this.metabolicage = metabolicage;
-        this.bmi = bmi;
-        this.bmr = bmr;
-        this.musclepercent = musclepercent;
-        this.weektype = weektype;
-        this.created_date = created_date;
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getEdate() {
+        return edate;
+    }
+
+    public void setEdate(String edate) {
         this.edate = edate;
     }
 
@@ -113,26 +137,28 @@ public class Progress {
         this.musclepercent = musclepercent;
     }
 
-    public String getWeektype() {
-        return weektype;
+    public String getType() {
+        return type;
     }
 
-    public void setWeektype(String weektype) {
-        this.weektype = weektype;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public String getCreated_date() {
-        return created_date;
+    public String getCreatedAt() {
+        return createdAt;
     }
 
-    public String getEdate() {
-        return edate;
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
     }
 
-    public void setCreated_date(String created_date) {
-        this.created_date = created_date;
+    public String getUpdatedAt() {
+        return updatedAt;
     }
-    public void setEdate(String edate) {
-        this.edate = edate;
+
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
     }
+
 }
