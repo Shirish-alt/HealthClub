@@ -144,7 +144,7 @@
         <RelativeLayout style="@style/profileDetailsLayout">
             <ImageView
                 android:id="@+id/genderImageView"
-                android:src="@drawable/ic_baseline_calendar_today_24"
+                android:src="@drawable/gender"
                 style="@style/profileDetailsImage" />
 
             <TextView
@@ -165,7 +165,7 @@
         <RelativeLayout style="@style/profileDetailsLayout">
             <ImageView
                 android:id="@+id/heightImageView"
-                android:src="@drawable/ic_baseline_calendar_today_24"
+                android:src="@drawable/height"
                 style="@style/profileDetailsImage" />
 
             <TextView
@@ -186,7 +186,7 @@
         <RelativeLayout style="@style/profileDetailsLayout">
             <ImageView
                 android:id="@+id/iwImageView"
-                android:src="@drawable/ic_baseline_calendar_today_24"
+                android:src="@drawable/weight"
                 style="@style/profileDetailsImage" />
 
             <TextView
@@ -210,6 +210,98 @@
 
 
 
+        <TextView
+            style="@style/headerText"
+            android:text="Your Package"
+            android:layout_marginBottom="20dp"/>
+
+        <LinearLayout
+            style="@style/profileDetailsLayout">
+            <ImageView
+                android:id="@+id/shaketypeImageView"
+                android:src="@drawable/checklist"
+                style="@style/profileDetailsImage" />
+
+            <TextView
+                android:id="@+id/shaketypeTextView"
+                android:text="Shake Type"
+                style="@style/profileDetailsTextMain" />
+
+            <TextView
+                android:id="@+id/shaketype"
+                android:text="3+1 Full Milk"
+                style="@style/profileDetailsMiniText" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/profileDetailsLayout">
+            <ImageView
+                android:src="@drawable/sunrise"
+                style="@style/profileDetailsImage" />
+
+            <TextView
+                android:text="Morning"
+                style="@style/profileDetailsTextMain" />
+
+            <TextView
+                android:id="@+id/morning"
+                android:text="3+1 Full Milk"
+                style="@style/profileDetailsMiniText" />
+
+        </LinearLayout>
+        <LinearLayout
+            style="@style/profileDetailsLayout">
+            <ImageView
+                android:src="@drawable/sunset"
+                style="@style/profileDetailsImage" />
+
+            <TextView
+                android:text="Evening"
+                style="@style/profileDetailsTextMain" />
+
+            <TextView
+                android:id="@+id/evening"
+                android:text="3+1 Full Milk"
+                style="@style/profileDetailsMiniText" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/profileDetailsLayout">
+            <ImageView
+                android:src="@drawable/start"
+                style="@style/profileDetailsImage" />
+
+            <TextView
+                android:text="Joining Date"
+                style="@style/profileDetailsTextMain" />
+
+            <TextView
+                android:id="@+id/joindate"
+                android:text="3+1 Full Milk"
+                style="@style/profileDetailsMiniText" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/profileDetailsLayout">
+            <ImageView
+                android:src="@drawable/start"
+                style="@style/profileDetailsImage" />
+
+            <TextView
+                android:text="End Date"
+                style="@style/profileDetailsTextMain" />
+
+            <TextView
+                android:id="@+id/enddate"
+                android:text="3+1 Full Milk"
+                style="@style/profileDetailsMiniText" />
+
+        </LinearLayout>
+
+        <View style="@style/proifleDetailsView" />
 
 
         <androidx.cardview.widget.CardView

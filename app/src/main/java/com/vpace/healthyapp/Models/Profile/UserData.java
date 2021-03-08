@@ -91,6 +91,19 @@ public class UserData {
     @Expose
     private String subscriptionPlan;
 
+    @SerializedName("join_date")
+    @Expose
+    private String join_date;
+    @SerializedName("end_date")
+    @Expose
+    private String end_date;
+    @SerializedName("morning")
+    @Expose
+    private String morning;
+    @SerializedName("evening")
+    @Expose
+    private String evening;
+
     public Integer getId() {
         return id;
     }
@@ -315,4 +328,35 @@ public class UserData {
         this.subscriptionPlan = subscriptionPlan;
     }
 
+    public String getJoin_date() {
+        return join_date;
+    }
+
+    public void setJoin_date(String join_date) {
+        this.join_date = join_date;
+    }
+
+    public String getEnd_date() {
+        return end_date;
+    }
+
+    public void setEnd_date(String end_date) {
+        this.end_date = end_date;
+    }
+
+    public String getMorning() {
+        return morning;
+    }
+
+    public void setMorning(String morning) {
+        this.morning = morning;
+    }
+
+    public String getEvening() {
+        return evening;
+    }
+
+    public void setEvening(String evening) {
+        this.evening = evening;
+    }
 }

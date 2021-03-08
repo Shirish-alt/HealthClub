@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -42,7 +43,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     String access_token;
     ImageView profile_image;
-    TextView profile_title, profile_email, prof_name, prof_address, prof_email, prof_dob, prof_mobile,lost_weight, remaining_weight,lost_fat, remaining_fat, muscle_gain, muscle_gain_remaining,ideal_weight_message, prof_iw,prof_gender, prof_height;
+    TextView profile_title, profile_email, prof_name, prof_address, prof_email, prof_dob, prof_mobile,lost_weight, remaining_weight,lost_fat, remaining_fat, muscle_gain, muscle_gain_remaining,ideal_weight_message, prof_iw,prof_gender, prof_height, shaketype,morning, evening, joindate, enddate;
     TabLayout tabLayout;
     ViewPager viewPager;
 
@@ -90,6 +91,11 @@ public class ProfileActivity extends AppCompatActivity {
         muscle_gain = (TextView) findViewById(R.id.muscle_gain);
         muscle_gain_remaining = (TextView) findViewById(R.id.muscle_gain_remaining);
         ideal_weight_message = (TextView) findViewById(R.id.ideal_weight_message);
+        shaketype = (TextView) findViewById(R.id.shaketype);
+        morning = (TextView) findViewById(R.id.morning);
+        evening = (TextView) findViewById(R.id.evening);
+        joindate = (TextView) findViewById(R.id.joindate);
+        enddate = (TextView) findViewById(R.id.enddate);
 
         res_table = findViewById(R.id.res_table);
         res_table.setHasFixedSize(true);
@@ -168,6 +174,11 @@ public class ProfileActivity extends AppCompatActivity {
                 prof_iw.setText(ideal_weight);
                 prof_gender.setText(userData.getGender());
                 prof_height.setText(userData.getHeight()+" CM");
+                shaketype.setText(userData.getSubscriptionPlan());
+                morning.setText(userData.getMorning());
+                evening.setText(userData.getEvening());
+                joindate.setText(userData.getJoin_date());
+                enddate.setText(userData.getEnd_date());
 
                 Glide.with(ProfileActivity.this)
                         .load(getuser.getProfilePhotoUrl())
@@ -204,7 +215,9 @@ public class ProfileActivity extends AppCompatActivity {
                     //Weight Info...
                     WeightInfo.add(new BarEntry(i, Float.parseFloat(item.getWeight())));
                     BarDataSet dataSetw = new BarDataSet(WeightInfo, "Weight");
-                    dataSetw.setColors(getColor(R.color.pink1));
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        dataSetw.setColors(getColor(R.color.pink1));
+                    }
 
                     dataSetw.setValueTextColor(Color.BLACK);
                     dataSetw.setValueTextSize(15f);
@@ -219,7 +232,9 @@ public class ProfileActivity extends AppCompatActivity {
                     //VFat Info...
                     VfatInfo.add(new BarEntry(i, Float.parseFloat(item.getVfat())));
                     BarDataSet dataSetv = new BarDataSet(VfatInfo, "VFAT");
-                    dataSetv.setColors(getColor(R.color.green1));
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        dataSetv.setColors(getColor(R.color.green1));
+                    }
 
                     dataSetv.setValueTextColor(Color.BLACK);
                     dataSetv.setValueTextSize(15f);
@@ -234,7 +249,9 @@ public class ProfileActivity extends AppCompatActivity {
                     //Bmi Info...
                     BmiInfo.add(new BarEntry(i, Float.parseFloat(item.getBmi())));
                     BarDataSet dataSetb = new BarDataSet(BmiInfo, "BMI");
-                    dataSetb.setColors(getColor(R.color.skyblue));
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        dataSetb.setColors(getColor(R.color.skyblue));
+                    }
                     dataSetb.setValueTextColor(Color.BLACK);
                     dataSetb.setValueTextSize(15f);
 
@@ -250,7 +267,9 @@ public class ProfileActivity extends AppCompatActivity {
 
                     MusleInfo.add(new BarEntry(i, Float.parseFloat(item.getMusclepercent())));
                     BarDataSet dataSetm = new BarDataSet(MusleInfo, "Muscle");
-                    dataSetm.setColors(getColor(R.color.red1));
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        dataSetm.setColors(getColor(R.color.red1));
+                    }
                     dataSetm.setValueTextColor(Color.BLACK);
                     dataSetm.setValueTextSize(15f);
 
@@ -265,7 +284,9 @@ public class ProfileActivity extends AppCompatActivity {
 
                     FatInfo.add(new BarEntry(i, Float.parseFloat(item.getTotalfatpercent())));
                     BarDataSet dataSetf = new BarDataSet(FatInfo, "Fat");
-                    dataSetf.setColors(getColor(R.color.yellow1));
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        dataSetf.setColors(getColor(R.color.yellow1));
+                    }
                     dataSetf.setValueTextColor(Color.BLACK);
                     dataSetf.setValueTextSize(15f);
 

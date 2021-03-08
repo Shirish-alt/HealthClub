@@ -11,8 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-<<<<<<< HEAD:app/src/main/java/com/vpace/healthyapp/MainActivity.java
-=======
 import android.os.Handler;
 import android.util.Log;
 import android.view.Menu;
