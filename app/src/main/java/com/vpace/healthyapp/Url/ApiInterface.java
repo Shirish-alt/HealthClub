@@ -1,6 +1,6 @@
 package com.vpace.healthyapp.Url;
 
-import com.vpace.healthyapp.Models.Profile.DataObject;
+import com.vpace.healthyapp.Models.Profile.Profile;
 import com.vpace.healthyapp.Models.SuggetionData;
 
 import okhttp3.ResponseBody;
@@ -16,7 +16,8 @@ import retrofit2.http.POST;
 public interface ApiInterface {
 
     @GET("me")
-    Call<DataObject> getProfileData(@Header("Authorization") String auth_token);
+    Call<Profile> getProfileData(@Header("Authorization") String auth_token);
+
 
     @FormUrlEncoded
     @POST("suggestion")
@@ -24,4 +25,8 @@ public interface ApiInterface {
             @Header("Authorization") String auth_token,
             @Field("message") String suggestion
     );
+
+//    @POST("suggestion")
+//    Call<SuggetionData> Suggestion(SuggetionData suggetionData);
+
 }

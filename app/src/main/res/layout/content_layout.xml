@@ -22,8 +22,8 @@
             android:layout_height="200dp">
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="fitXY"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
             android:background="#FAF7F7"
             android:src="@drawable/image"></ImageView>
         </androidx.cardview.widget.CardView>
@@ -148,11 +148,167 @@
                 style="@style/profileDetailsMiniText" />
 
         </RelativeLayout>
+        <RelativeLayout style="@style/profileDetailsLayout">
+            <ImageView
+                android:id="@+id/genderImageView"
+                android:src="@drawable/gender"
+                style="@style/profileDetailsImage" />
+
+            <TextView
+                android:text="Gender"
+                android:id="@+id/gender_title"
+                android:layout_toRightOf="@id/genderImageView"
+                style="@style/profileDetailsTextMain" />
+
+            <TextView
+                android:text="65"
+                android:layout_below="@+id/gender_title"
+                android:id="@+id/prof_gender"
+                android:layout_toRightOf="@id/genderImageView"
+                style="@style/profileDetailsMiniText" />
+
+        </RelativeLayout>
+
+        <RelativeLayout style="@style/profileDetailsLayout">
+            <ImageView
+                android:id="@+id/heightImageView"
+                android:src="@drawable/height"
+                style="@style/profileDetailsImage" />
+
+            <TextView
+                android:text="Height"
+                android:id="@+id/height_title"
+                android:layout_toRightOf="@id/heightImageView"
+                style="@style/profileDetailsTextMain" />
+
+            <TextView
+                android:text="65"
+                android:layout_below="@+id/height_title"
+                android:id="@+id/prof_height"
+                android:layout_toRightOf="@id/heightImageView"
+                style="@style/profileDetailsMiniText" />
+
+        </RelativeLayout>
+
+        <RelativeLayout style="@style/profileDetailsLayout">
+            <ImageView
+                android:id="@+id/iwImageView"
+                android:src="@drawable/weight"
+                style="@style/profileDetailsImage" />
+
+            <TextView
+                android:text="Ideal Weight"
+                android:id="@+id/idweight_title"
+                android:layout_toRightOf="@id/iwImageView"
+                style="@style/profileDetailsTextMain" />
+
+            <TextView
+                android:text="65"
+                android:layout_below="@+id/idweight_title"
+                android:id="@+id/prof_iw"
+                android:layout_toRightOf="@id/iwImageView"
+                style="@style/profileDetailsMiniText" />
+
+        </RelativeLayout>
+
+
 
         <View style="@style/proifleDetailsView" />
 
 
 
+        <TextView
+            style="@style/headerText"
+            android:text="Your Package"
+            android:layout_marginBottom="20dp"/>
+
+        <LinearLayout
+            style="@style/profileDetailsLayout">
+            <ImageView
+                android:id="@+id/shaketypeImageView"
+                android:src="@drawable/checklist"
+                style="@style/profileDetailsImage" />
+
+            <TextView
+                android:id="@+id/shaketypeTextView"
+                android:text="Shake Type"
+                style="@style/profileDetailsTextMain" />
+
+            <TextView
+                android:id="@+id/shaketype"
+                android:text="3+1 Full Milk"
+                style="@style/profileDetailsMiniText" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/profileDetailsLayout">
+            <ImageView
+                android:src="@drawable/sunrise"
+                style="@style/profileDetailsImage" />
+
+            <TextView
+                android:text="Morning"
+                style="@style/profileDetailsTextMain" />
+
+            <TextView
+                android:id="@+id/morning"
+                android:text="3+1 Full Milk"
+                style="@style/profileDetailsMiniText" />
+
+        </LinearLayout>
+        <LinearLayout
+            style="@style/profileDetailsLayout">
+            <ImageView
+                android:src="@drawable/sunset"
+                style="@style/profileDetailsImage" />
+
+            <TextView
+                android:text="Evening"
+                style="@style/profileDetailsTextMain" />
+
+            <TextView
+                android:id="@+id/evening"
+                android:text="3+1 Full Milk"
+                style="@style/profileDetailsMiniText" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/profileDetailsLayout">
+            <ImageView
+                android:src="@drawable/start"
+                style="@style/profileDetailsImage" />
+
+            <TextView
+                android:text="Joining Date"
+                style="@style/profileDetailsTextMain" />
+
+            <TextView
+                android:id="@+id/joindate"
+                android:text="3+1 Full Milk"
+                style="@style/profileDetailsMiniText" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/profileDetailsLayout">
+            <ImageView
+                android:src="@drawable/start"
+                style="@style/profileDetailsImage" />
+
+            <TextView
+                android:text="End Date"
+                style="@style/profileDetailsTextMain" />
+
+            <TextView
+                android:id="@+id/enddate"
+                android:text="3+1 Full Milk"
+                style="@style/profileDetailsMiniText" />
+
+        </LinearLayout>
+
+        <View style="@style/proifleDetailsView" />
 
 
         <androidx.cardview.widget.CardView
@@ -186,6 +342,7 @@
                   android:layout_below="@id/wtt"
                   android:weightSum="2">
                   <TextView
+                      android:id="@+id/lost_weight"
                       android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:text="Lost: 11.60 Kg"
@@ -193,6 +350,7 @@
                       android:textColor="#000"
                       android:layout_weight="1"></TextView>
                   <TextView
+                      android:id="@+id/remaining_weight"
                       android:layout_width="match_parent"
                       android:text="Remain: 22.00"
                       android:gravity="center"
@@ -223,6 +381,7 @@
                     android:layout_below="@id/wtt"
                     android:weightSum="2">
                     <TextView
+                        android:id="@+id/lost_fat"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Lost: 4.80 Kg"
@@ -231,11 +390,11 @@
 
                         android:layout_weight="1"></TextView>
                     <TextView
+                        android:id="@+id/remaining_fat"
                         android:layout_width="match_parent"
                         android:text="Remain: 24.10"
                         android:gravity="center"
                         android:textColor="#000"
-
                         android:layout_height="wrap_content"
                         android:layout_weight="1"></TextView>
                 </LinearLayout>
@@ -260,6 +419,7 @@
                     android:layout_below="@id/wtt"
                     android:weightSum="2">
                     <TextView
+                        android:id="@+id/muscle_gain"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Gain:2.00"
@@ -268,10 +428,10 @@
                         android:gravity="center"
                         android:layout_weight="1"></TextView>
                     <TextView
+                        android:id="@+id/muscle_gain_remaining"
                         android:layout_width="match_parent"
                         android:text="Remain: 08.80"
                         android:textColor="#000"
-
                         android:gravity="center"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"></TextView>
@@ -406,6 +566,17 @@
             android:textStyle="bold"
             android:textSize="25sp"></TextView>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="(Your ideal weight is 0 Kg)"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="5dp"
+            android:id="@+id/ideal_weight_message"
+            android:textColor="#73C547"
+            android:textStyle="bold"
+            android:textSize="20sp"></TextView>
+
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_margin="5dp"
@@ -435,6 +606,16 @@
             android:textStyle="bold"
             android:textSize="25sp"></TextView>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="(Ideal Body Fat for women: 25% and Men: 15%)"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="5dp"
+            android:textColor="#73C547"
+            android:textStyle="bold"
+            android:textSize="20sp"></TextView>
+
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_margin="5dp"
@@ -462,6 +643,15 @@
             android:textColor="#000"
             android:textStyle="bold"
             android:textSize="25sp"></TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="(Ideal: 25, over weight: 23 to 30, Obese: 30+)"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="5dp"
+            android:textColor="#73C547"
+            android:textStyle="bold"
+            android:textSize="20sp"></TextView>
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
