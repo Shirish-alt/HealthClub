@@ -17,7 +17,6 @@ import android.widget.Toast;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
@@ -32,8 +31,10 @@ import com.vpace.healthyapp.Urls;
 import java.util.HashMap;
 import java.util.Map;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Suggestion extends AppCompatActivity {
 
@@ -93,7 +94,7 @@ public class Suggestion extends AppCompatActivity {
                         suggestion.setError("This Field is Required");
                         return;
                     }else {
-                        suggestion.setText(" ");
+                        //suggestion.setText(" ");
                         SendData(token);
                     }
 
@@ -106,38 +107,56 @@ public class Suggestion extends AppCompatActivity {
     }
 
     private void SendData(String token) {
+        Call<ResponseBody > call=apiInterface.Sueggestion("Bearer "+token,s_suggetion);
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                Log.e("Res",""+response.message());
 
-        StringRequest stringRequest=new StringRequest(Request.Method.POST, Urls.suggestion_Url,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-
-                        Toast.makeText(Suggestion.this, "Thank for your Suggetion", Toast.LENGTH_LONG).show();
+                Toast.makeText(Suggestion.this, "Thank for your Suggetion", Toast.LENGTH_LONG).show();
                         Intent intent=new Intent(Suggestion.this,MainActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(intent);
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(Suggestion.this, "Err:"+error.toString(), Toast.LENGTH_SHORT).show();
-            }
-        }){
-            @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                Map<String,String> header=new HashMap<>();
-                header.put("Authorization","Bearer "+token);
-                return  header;
             }
 
             @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String,String> map=new HashMap<>();
-                map.put("message",s_suggetion);
-                return  map;
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Toast.makeText(Suggestion.this, "Err:"+t.getMessage(), Toast.LENGTH_SHORT).show();
             }
-        };
-        RequestQueue queue= Volley.newRequestQueue(Suggestion.this);
-        queue.add(stringRequest);
+        });
     }
+
+//        StringRequest stringRequest=new StringRequest(Request.Method.POST, Urls.suggestion_Url,
+//                new Response.Listener<String>() {
+//                    @Override
+//                    public void onResponse(String response) {
+//
+//                        Toast.makeText(Suggestion.this, "Thank for your Suggetion", Toast.LENGTH_LONG).show();
+//                        Intent intent=new Intent(Suggestion.this,MainActivity.class);
+//                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+//                        startActivity(intent);
+//                    }
+//                }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                Toast.makeText(Suggestion.this, "Err:"+error.toString(), Toast.LENGTH_SHORT).show();
+//            }
+//        }){
+//            @Override
+//            public Map<String, String> getHeaders() throws AuthFailureError {
+//                Map<String,String> header=new HashMap<>();
+//                header.put("Authorization","Bearer "+token);
+//                return  header;
+//            }
+//
+//            @Override
+//            protected Map<String, String> getParams() throws AuthFailureError {
+//                Map<String,String> map=new HashMap<>();
+//                map.put("message",s_suggetion);
+//                return  map;
+//            }
+//        };
+//        RequestQueue queue= Volley.newRequestQueue(Suggestion.this);
+//        queue.add(stringRequest);
+//    }
 }

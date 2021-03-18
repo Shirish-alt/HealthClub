@@ -229,15 +229,12 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case  R.id.logout:
                         drawerLayout.closeDrawer(GravityCompat.START);
-                        Intent i=new Intent(new Intent(MainActivity.this,MainActivity.class));
-                        startActivity(i);
+
                         SessionManagment sessionManagment1=new SessionManagment(MainActivity.this);
                         sessionManagment1.removeSession();
                         Toast.makeText(MainActivity.this, "Removed", Toast.LENGTH_SHORT).show();
+                        restartActivity();
 
-//                        Intent intent2=new Intent(MainActivity.this,LoginScreen.class);
-//                        intent2.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//                        startActivity(intent2);
 
 
                         break;
@@ -376,5 +373,15 @@ public class MainActivity extends AppCompatActivity {
         queue.add(stringRequest);
     }
 
-
+    private void restartActivity() {
+        Intent intent = getIntent();
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+        finish();
+        startActivity(intent);
+    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+     finish();
+    }
 }

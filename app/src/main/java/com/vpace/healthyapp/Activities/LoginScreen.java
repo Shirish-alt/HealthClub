@@ -116,10 +116,7 @@ public class LoginScreen extends AppCompatActivity {
                                      String name=userObj.getString("username");
 
 
-                                    Log.e("Access",access_token+" "+name+""+username);
-
-
-
+//                                    Log.e("Access",access_token+" "+name+""+username);
                                     if(users.contains(username)){
                                         //User userData=new User(access_token,user);
 
@@ -135,13 +132,20 @@ public class LoginScreen extends AppCompatActivity {
 
 
                                     }else{
+                                        progress.setVisibility(View.GONE);
                                         Toast.makeText(LoginScreen.this, "Enter Valid Data", Toast.LENGTH_SHORT).show();
                                     }
 
 
 
 
+                                }else{
+                                    progress.setVisibility(View.GONE);
+                                    Toast.makeText(LoginScreen.this, "Login Failed", Toast.LENGTH_SHORT).show();
                                 }
+                            }else{
+                                progress.setVisibility(View.GONE);
+                                Toast.makeText(LoginScreen.this, "Login Failed |Enter Valid Credentials", Toast.LENGTH_SHORT).show();
                             }
 
                         } catch (JSONException e) {

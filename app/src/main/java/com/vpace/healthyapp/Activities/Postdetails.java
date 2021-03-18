@@ -31,6 +31,8 @@ public class Postdetails extends AppCompatActivity {
 
         PostData postData= (PostData) getIntent().getSerializableExtra("PostData");
 
+
+
         Glide.with(this)
                 .load(postData.getImgUrl())
                 .into(imageView);

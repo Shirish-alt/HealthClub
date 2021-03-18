@@ -44,6 +44,9 @@ public class MorePostAdapter extends RecyclerView.Adapter<MorePostAdapter.PostHo
                 .load(postModel.getImgUrl())
                 .into(holder.postimg);
         holder.posttitle.setText(postModel.getTitle());
+
+
+
        holder.cardView.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
