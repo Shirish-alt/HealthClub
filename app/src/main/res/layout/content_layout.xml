@@ -700,7 +700,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Total Fat Graph"
+            android:text="Total Fat Loss Graph"
             android:layout_below="@id/card_musle"
             android:layout_centerHorizontal="true"
             android:layout_margin="5dp"
@@ -708,6 +708,16 @@
             android:id="@+id/ft"
             android:textStyle="bold"
             android:textSize="25sp"></TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="(Ideal Values for Women : 25, Men : 15)"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="5dp"
+            android:textColor="#73C547"
+            android:textStyle="bold"
+            android:textSize="20sp"></TextView>
 
 
         <androidx.cardview.widget.CardView

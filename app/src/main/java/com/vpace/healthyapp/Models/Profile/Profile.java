@@ -4,9 +4,6 @@ package com.vpace.healthyapp.Models.Profile;
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.vpace.healthyapp.Models.Profile.Progress;
-import com.vpace.healthyapp.Models.Profile.User;
-import com.vpace.healthyapp.Models.Profile.UserData;
 
 public class Profile {
 
@@ -30,22 +27,22 @@ public class Profile {
     private String idealWeight;
     @SerializedName("lost_weight")
     @Expose
-    private Integer lostWeight;
+    private String lostWeight;
     @SerializedName("remaining_weight")
     @Expose
-    private Integer remainingWeight;
+    private String remainingWeight;
     @SerializedName("lost_fat")
     @Expose
-    private Integer lostFat;
+    private String lostFat;
     @SerializedName("remaining_fat")
     @Expose
-    private Integer remainingFat;
+    private String remainingFat;
     @SerializedName("muscle_gain")
     @Expose
-    private Integer muscleGain;
+    private String muscleGain;
     @SerializedName("muscle_remaining")
     @Expose
-    private Integer muscleRemaining;
+    private String muscleRemaining;
 
     public User getUser() {
         return user;
@@ -95,51 +92,51 @@ public class Profile {
         this.idealWeight = idealWeight;
     }
 
-    public Integer getLostWeight() {
+    public String getLostWeight() {
         return lostWeight;
     }
 
-    public void setLostWeight(Integer lostWeight) {
+    public void setLostWeight(String lostWeight) {
         this.lostWeight = lostWeight;
     }
 
-    public Integer getRemainingWeight() {
+    public String getRemainingWeight() {
         return remainingWeight;
     }
 
-    public void setRemainingWeight(Integer remainingWeight) {
+    public void setRemainingWeight(String remainingWeight) {
         this.remainingWeight = remainingWeight;
     }
 
-    public Integer getLostFat() {
+    public String getLostFat() {
         return lostFat;
     }
 
-    public void setLostFat(Integer lostFat) {
+    public void setLostFat(String lostFat) {
         this.lostFat = lostFat;
     }
 
-    public Integer getRemainingFat() {
+    public String getRemainingFat() {
         return remainingFat;
     }
 
-    public void setRemainingFat(Integer remainingFat) {
+    public void setRemainingFat(String remainingFat) {
         this.remainingFat = remainingFat;
     }
 
-    public Integer getMuscleGain() {
+    public String getMuscleGain() {
         return muscleGain;
     }
 
-    public void setMuscleGain(Integer muscleGain) {
+    public void setMuscleGain(String muscleGain) {
         this.muscleGain = muscleGain;
     }
 
-    public Integer getMuscleRemaining() {
+    public String getMuscleRemaining() {
         return muscleRemaining;
     }
 
-    public void setMuscleRemaining(Integer muscleRemaining) {
+    public void setMuscleRemaining(String muscleRemaining) {
         this.muscleRemaining = muscleRemaining;
     }
 

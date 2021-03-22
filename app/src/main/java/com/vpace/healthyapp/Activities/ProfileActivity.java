@@ -148,159 +148,162 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Profile> call, Response<Profile> response) {
 
-                Log.e("ProfileData",""+response);
+                if(response.code() == 200 && response.body() != null) {
+                    Log.e("ProfileData", "" + response);
 
-                String lost_weight_str = String.valueOf(response.body().getLostWeight());
-                String remaining_weight_str = String.valueOf(response.body().getRemainingWeight());
-                String lost_fat_str = String.valueOf(response.body().getLostFat());
-                String remaining_fat_str = String.valueOf(response.body().getRemainingFat());
-                String muscle_gain_str = String.valueOf(response.body().getMuscleGain());
-                String muscle_gain_remaining_str = String.valueOf(response.body().getMuscleRemaining());
-                String ideal_weight = String.valueOf(response.body().getIdealWeight());
-
-
-
-                UserData userData = response.body().getUserData();
-                //Profile
-                User getuser = response.body().getUser();
-
-                profile_title.setText(getuser.getName());
-                profile_email.setText(getuser.getEmail());
-                prof_name.setText(getuser.getName());
-                prof_email.setText(getuser.getEmail());
-                prof_mobile.setText(getuser.getPhone());
-                prof_address.setText(userData.getAddress());
-                prof_dob.setText(userData.getDob());
-                prof_iw.setText(ideal_weight);
-                prof_gender.setText(userData.getGender());
-                prof_height.setText(userData.getHeight()+" CM");
-                shaketype.setText(userData.getSubscriptionPlan());
-                morning.setText(userData.getMorning());
-                evening.setText(userData.getEvening());
-                joindate.setText(userData.getJoin_date());
-                enddate.setText(userData.getEnd_date());
-
-                Glide.with(ProfileActivity.this)
-                        .load(getuser.getProfilePhotoUrl())
-
-                        .into(profile_image);
-
-                lost_weight.setText("Lost: "+ lost_weight_str);
-                remaining_weight.setText("Remaining: "+ remaining_weight_str);
-                lost_fat.setText("Loss: "+ lost_fat_str);
-                remaining_fat.setText("Remaining: "+ remaining_fat_str);
-                muscle_gain.setText("Gain: "+ muscle_gain_str);
-                muscle_gain_remaining.setText("Remaining: "+ muscle_gain_remaining_str);
-                ideal_weight_message.setText("Ideal weight is : "+ ideal_weight+" kg");
-
-                //Progress  Array
-
-                List<Progress> progressList = response.body().getProgress();
-                for (int i = 0; i < progressList.size(); i++) {
-                    Progress item = progressList.get(i);
-
-                    TableModel model = new TableModel(
-                            "", "", item.getWeight(), item.getVfat(), item.getTsf(),
-                            item.getTotalfatpercent(), item.getBmi(), item.getBmr(),
-                            item.getMusclepercent(), "",
-                            item.getEdate()
-                    );
-                    //Table
-                    tableModelList.add(model);
+                    String lost_weight_str = String.valueOf(response.body().getLostWeight());
+                    String remaining_weight_str = String.valueOf(response.body().getRemainingWeight());
+                    String lost_fat_str = String.valueOf(response.body().getLostFat());
+                    String remaining_fat_str = String.valueOf(response.body().getRemainingFat());
+                    String muscle_gain_str = String.valueOf(response.body().getMuscleGain());
+                    String muscle_gain_remaining_str = String.valueOf(response.body().getMuscleRemaining());
+                    String ideal_weight = String.valueOf(response.body().getIdealWeight());
 
 
-                    //Graph
+                    UserData userData = response.body().getUserData();
+                    //Profile
+                    User getuser = response.body().getUser();
+
+                    profile_title.setText(getuser.getName());
+                    profile_email.setText(getuser.getEmail());
+                    prof_name.setText(getuser.getName());
+                    prof_email.setText(getuser.getEmail());
+                    prof_mobile.setText(getuser.getPhone());
+                    prof_address.setText(userData.getAddress());
+                    prof_dob.setText(userData.getDob());
+                    prof_iw.setText(ideal_weight);
+                    prof_gender.setText(userData.getGender());
+                    prof_height.setText(userData.getHeight() + " CM");
+                    shaketype.setText(userData.getSubscriptionPlan());
+                    morning.setText(userData.getMorning());
+                    evening.setText(userData.getEvening());
+                    joindate.setText(userData.getJoin_date());
+                    enddate.setText(userData.getEnd_date());
+
+                    Glide.with(ProfileActivity.this)
+                            .load(getuser.getProfilePhotoUrl())
+
+                            .into(profile_image);
+
+                    lost_weight.setText("Lost: " + lost_weight_str);
+                    remaining_weight.setText("Remaining: " + remaining_weight_str);
+                    lost_fat.setText("Loss: " + lost_fat_str);
+                    remaining_fat.setText("Remaining: " + remaining_fat_str);
+                    muscle_gain.setText("Gain: " + muscle_gain_str);
+                    muscle_gain_remaining.setText("Remaining: " + muscle_gain_remaining_str);
+                    ideal_weight_message.setText("Ideal weight is : " + ideal_weight + " kg");
+
+                    //Progress  Array
+
+                    List<Progress> progressList = response.body().getProgress();
+                    for (int i = 0; i < progressList.size(); i++) {
+                        Progress item = progressList.get(i);
+
+                        TableModel model = new TableModel(
+                                "", "", item.getWeight(), item.getVfat(), item.getTsf(),
+                                item.getTotalfatpercent(), item.getBmi(), item.getBmr(),
+                                item.getMusclepercent(), "",
+                                item.getEdate()
+                        );
+                        //Table
+                        tableModelList.add(model);
 
 
-                    //Weight Info...
-                    WeightInfo.add(new BarEntry(i, Float.parseFloat(item.getWeight())));
-                    BarDataSet dataSetw = new BarDataSet(WeightInfo, "Weight");
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                        dataSetw.setColors(getColor(R.color.pink1));
+                        //Graph
+
+
+                        //Weight Info...
+                        WeightInfo.add(new BarEntry(i, Float.parseFloat(item.getWeight())));
+                        BarDataSet dataSetw = new BarDataSet(WeightInfo, "Weight");
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                            dataSetw.setColors(getColor(R.color.pink1));
+                        }
+
+                        dataSetw.setValueTextColor(Color.BLACK);
+                        dataSetw.setValueTextSize(15f);
+
+                        BarData barDataw = new BarData(dataSetw);
+                        weight_piechart.setFitBars(true);
+                        weight_piechart.setData(barDataw);
+
+                        weight_piechart.getDescription().setText("Weight Loss");
+                        weight_piechart.animateY(1000);
+
+                        //VFat Info...
+                        VfatInfo.add(new BarEntry(i, Float.parseFloat(item.getVfat())));
+                        BarDataSet dataSetv = new BarDataSet(VfatInfo, "VFAT");
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                            dataSetv.setColors(getColor(R.color.green1));
+                        }
+
+                        dataSetv.setValueTextColor(Color.BLACK);
+                        dataSetv.setValueTextSize(15f);
+
+                        BarData barDatav = new BarData(dataSetv);
+                        vfat_barchart.setFitBars(true);
+                        vfat_barchart.setData(barDatav);
+
+                        vfat_barchart.getDescription().setText("V.FAT");
+                        vfat_barchart.animateY(1000);
+
+                        //Bmi Info...
+                        BmiInfo.add(new BarEntry(i, Float.parseFloat(item.getBmi())));
+                        BarDataSet dataSetb = new BarDataSet(BmiInfo, "BMI");
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                            dataSetb.setColors(getColor(R.color.skyblue));
+                        }
+                        dataSetb.setValueTextColor(Color.BLACK);
+                        dataSetb.setValueTextSize(15f);
+
+                        BarData barData = new BarData(dataSetb);
+                        bmi_barChart.setFitBars(true);
+                        bmi_barChart.setData(barData);
+
+                        bmi_barChart.getDescription().setText("Bar");
+                        bmi_barChart.animateY(1000);
+
+                        //Musle Info
+
+
+                        MusleInfo.add(new BarEntry(i, Float.parseFloat(item.getMusclepercent())));
+                        BarDataSet dataSetm = new BarDataSet(MusleInfo, "Muscle");
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                            dataSetm.setColors(getColor(R.color.red1));
+                        }
+                        dataSetm.setValueTextColor(Color.BLACK);
+                        dataSetm.setValueTextSize(15f);
+
+                        BarData barData1 = new BarData(dataSetm);
+                        musle_piechart.setFitBars(true);
+                        musle_piechart.setData(barData1);
+                        musle_piechart.getDescription().setText("Bar Report");
+                        musle_piechart.animateY(3000);
+
+
+                        //Fat Into
+
+                        FatInfo.add(new BarEntry(i, Float.parseFloat(item.getTotalfatpercent())));
+                        BarDataSet dataSetf = new BarDataSet(FatInfo, "Fat");
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                            dataSetf.setColors(getColor(R.color.yellow1));
+                        }
+                        dataSetf.setValueTextColor(Color.BLACK);
+                        dataSetf.setValueTextSize(15f);
+
+                        BarData barData2 = new BarData(dataSetf);
+                        fat_piechart.setFitBars(true);
+                        fat_piechart.setData(barData2);
+                        fat_piechart.getDescription().setText("Bar Report");
+                        fat_piechart.animateY(4000);
+
+
                     }
-
-                    dataSetw.setValueTextColor(Color.BLACK);
-                    dataSetw.setValueTextSize(15f);
-
-                    BarData barDataw = new BarData(dataSetw);
-                    weight_piechart.setFitBars(true);
-                    weight_piechart.setData(barDataw);
-
-                    weight_piechart.getDescription().setText("Weight Loss");
-                    weight_piechart.animateY(1000);
-
-                    //VFat Info...
-                    VfatInfo.add(new BarEntry(i, Float.parseFloat(item.getVfat())));
-                    BarDataSet dataSetv = new BarDataSet(VfatInfo, "VFAT");
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                        dataSetv.setColors(getColor(R.color.green1));
-                    }
-
-                    dataSetv.setValueTextColor(Color.BLACK);
-                    dataSetv.setValueTextSize(15f);
-
-                    BarData barDatav = new BarData(dataSetv);
-                    vfat_barchart.setFitBars(true);
-                    vfat_barchart.setData(barDatav);
-
-                    vfat_barchart.getDescription().setText("V.FAT");
-                    vfat_barchart.animateY(1000);
-
-                    //Bmi Info...
-                    BmiInfo.add(new BarEntry(i, Float.parseFloat(item.getBmi())));
-                    BarDataSet dataSetb = new BarDataSet(BmiInfo, "BMI");
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                        dataSetb.setColors(getColor(R.color.skyblue));
-                    }
-                    dataSetb.setValueTextColor(Color.BLACK);
-                    dataSetb.setValueTextSize(15f);
-
-                    BarData barData = new BarData(dataSetb);
-                    bmi_barChart.setFitBars(true);
-                    bmi_barChart.setData(barData);
-
-                    bmi_barChart.getDescription().setText("Bar");
-                    bmi_barChart.animateY(1000);
-
-                    //Musle Info
-
-
-                    MusleInfo.add(new BarEntry(i, Float.parseFloat(item.getMusclepercent())));
-                    BarDataSet dataSetm = new BarDataSet(MusleInfo, "Muscle");
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                        dataSetm.setColors(getColor(R.color.red1));
-                    }
-                    dataSetm.setValueTextColor(Color.BLACK);
-                    dataSetm.setValueTextSize(15f);
-
-                    BarData barData1 = new BarData(dataSetm);
-                    musle_piechart.setFitBars(true);
-                    musle_piechart.setData(barData1);
-                    musle_piechart.getDescription().setText("Bar Report");
-                    musle_piechart.animateY(3000);
-
-
-                    //Fat Into
-
-                    FatInfo.add(new BarEntry(i, Float.parseFloat(item.getTotalfatpercent())));
-                    BarDataSet dataSetf = new BarDataSet(FatInfo, "Fat");
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                        dataSetf.setColors(getColor(R.color.yellow1));
-                    }
-                    dataSetf.setValueTextColor(Color.BLACK);
-                    dataSetf.setValueTextSize(15f);
-
-                    BarData barData2 = new BarData(dataSetf);
-                    fat_piechart.setFitBars(true);
-                    fat_piechart.setData(barData2);
-                    fat_piechart.getDescription().setText("Bar Report");
-                    fat_piechart.animateY(4000);
-
-
+                    tableAdapter = new TableAdapter(ProfileActivity.this, tableModelList);
+                    res_table.setAdapter(tableAdapter);
                 }
-                tableAdapter = new TableAdapter(ProfileActivity.this, tableModelList);
-                res_table.setAdapter(tableAdapter);
-
+                else {
+                    Toast.makeText(ProfileActivity.this, "Something went wrong. Try again later",Toast.LENGTH_SHORT).show();
+                }
 
             }
 
