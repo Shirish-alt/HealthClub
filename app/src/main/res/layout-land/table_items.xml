@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:stretchColumns=" "
+    android:layout_height="wrap_content">
+    <TableRow
+        android:layout_width="0dp"
+        android:layout_margin="2dp"
+    >
+        <TextView
+            android:id="@+id/date"
+            android:textColor="#000"
+            android:padding="2dp"
+            android:textSize="12sp"
+            android:layout_width="120dp"
+            android:gravity="center"
+            android:background="@drawable/cell"
+            android:layout_column="1"
+            />
+
+        <TextView
+            android:id="@+id/weight"
+            android:textColor="#000"
+            android:padding="2dp"
+            android:layout_width="120dp"
+            android:gravity="center"
+            android:background="@drawable/cell"
+            android:layout_column="2"
+            />
+
+        <TextView
+            android:id="@+id/vfat"
+            android:padding="2dp"
+            android:gravity="center"
+            android:layout_width="120dp"
+            android:textColor="#000"
+            android:background="@drawable/cell"
+            android:layout_column="3"
+            />
+
+        <TextView
+            android:id="@+id/tsf"
+            android:padding="2dp"
+            android:background="@drawable/cell"
+            android:gravity="center"
+            android:layout_width="120dp"
+            android:textColor="#000"
+            android:layout_column="4"
+            />
+
+        <TextView
+            android:id="@+id/totalfatpercent"
+            android:padding="2dp"
+            android:background="@drawable/cell"
+            android:gravity="center"
+            android:layout_width="120dp"
+            android:textColor="#000"
+            android:layout_column="5"
+            />
+
+        <TextView
+            android:id="@+id/bmi"
+            android:padding="2dp"
+            android:background="@drawable/cell"
+            android:layout_width="120dp"
+            android:textColor="#000"
+            android:gravity="center"
+            android:layout_column="6"
+            />
+
+        <TextView
+            android:id="@+id/bmr"
+            android:padding="2dp"
+            android:background="@drawable/cell"
+            android:layout_width="120dp"
+            android:gravity="center"
+            android:textColor="#000"
+            android:layout_column="7"
+            />
+
+        <TextView
+            android:id="@+id/musclepercent"
+            android:padding="2dp"
+            android:layout_width="120dp"
+            android:background="@drawable/cell"
+            android:gravity="center"
+            android:textColor="#000"
+            android:layout_column="8"
+            />
+    </TableRow>
+
+</TableLayout>

@@ -100,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
                 StartAnimation();
 
                 LoadData();
+
             }
         });
 
@@ -264,6 +265,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.e("Called","Called");
                 Toast.makeText(MainActivity.this, "Done", Toast.LENGTH_SHORT).show();
                 PromoVideos();
+                promoVidAdapter1.notifyDataSetChanged();
             }
         };
         handler.postDelayed(runnable,3000);
