@@ -60,13 +60,24 @@
             />
 
         <TextView
+            android:id="@+id/metabolic"
+            android:padding="2dp"
+            android:background="@drawable/cell"
+            android:layout_width="150dp"
+            android:textColor="#000"
+            android:text="Hello"
+            android:gravity="center"
+            android:layout_column="6"
+            />
+
+        <TextView
             android:id="@+id/bmi"
             android:padding="2dp"
             android:background="@drawable/cell"
             android:layout_width="120dp"
             android:textColor="#000"
             android:gravity="center"
-            android:layout_column="6"
+            android:layout_column="7"
             />
 
         <TextView
@@ -76,7 +87,7 @@
             android:layout_width="120dp"
             android:gravity="center"
             android:textColor="#000"
-            android:layout_column="7"
+            android:layout_column="8"
             />
 
         <TextView
@@ -86,7 +97,7 @@
             android:background="@drawable/cell"
             android:gravity="center"
             android:textColor="#000"
-            android:layout_column="8"
+            android:layout_column="9"
             />
     </TableRow>
 

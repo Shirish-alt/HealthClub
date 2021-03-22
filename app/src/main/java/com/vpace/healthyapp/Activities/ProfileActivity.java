@@ -43,7 +43,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     String access_token;
     ImageView profile_image;
-    TextView profile_title, profile_email, prof_name, prof_address, prof_email, prof_dob, prof_mobile,lost_weight, remaining_weight,lost_fat, remaining_fat, muscle_gain, muscle_gain_remaining,ideal_weight_message, prof_iw,prof_gender, prof_height, shaketype,morning, evening, joindate, enddate;
+    TextView profile_title, profile_email, prof_name, prof_address, prof_email, prof_dob, prof_mobile,lost_weight, remaining_weight,lost_fat,metabolic, remaining_fat, muscle_gain, muscle_gain_remaining,ideal_weight_message, prof_iw,prof_gender, prof_height, shaketype,morning, evening, joindate, enddate;
     TabLayout tabLayout;
     ViewPager viewPager;
 
@@ -76,6 +76,7 @@ public class ProfileActivity extends AppCompatActivity {
         prof_gender = findViewById(R.id.prof_gender);
         prof_height = findViewById(R.id.prof_height);
         prof_mobile = findViewById(R.id.prof_mobile);
+        metabolic = findViewById(R.id.metabolic);
 
         bmi_barChart = (BarChart) findViewById(R.id.Bmi_piechart);
         musle_piechart = (BarChart) findViewById(R.id.musle_piechart);
@@ -203,7 +204,7 @@ public class ProfileActivity extends AppCompatActivity {
                                 "", "", item.getWeight(), item.getVfat(), item.getTsf(),
                                 item.getTotalfatpercent(), item.getBmi(), item.getBmr(),
                                 item.getMusclepercent(), "",
-                                item.getEdate()
+                                item.getEdate(),item.getMetabolicage()
                         );
                         //Table
                         tableModelList.add(model);

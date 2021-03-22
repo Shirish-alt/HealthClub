@@ -2,23 +2,47 @@
 <ScrollView  android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginBottom="20dp"
     android:layout_height="wrap_content">
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="vertical"
-        android:layout_margin="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="10dp"
         android:layout_height="wrap_content"
         tools:context=".Fragments.CurrentDiet">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Early Morning"
-            android:textSize="24dp"
-            android:textStyle="bold"
-            android:textColor="#686B6C">
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Early Morning"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:id="@+id/early_title"
+                android:textColor="#686B6C">
 
-        </TextView>
+            </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_centerVertical="true"
+                android:textSize="15sp"
+                android:id="@+id/early_time"
+                android:textColor="#000"
+                android:text="6 AM"
+                android:drawableLeft="@drawable/ic_baseline_access_time_24"
+                android:layout_alignParentRight="true"
+                ></TextView>
+        </RelativeLayout>
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -30,15 +54,33 @@
             android:layout_height="wrap_content"
             android:id="@+id/res_earlymorning"/>
 
-        <TextView
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Breakfast"
-            android:textSize="24dp"
-            android:textStyle="bold"
-            android:textColor="#686B6C">
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Breakfast"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:id="@+id/break_title"
+                android:textColor="#686B6C">
 
-        </TextView>
+            </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_centerVertical="true"
+                android:textSize="15sp"
+                android:id="@+id/break_time"
+                android:textColor="#000"
+                android:text="6 AM"
+                android:drawableLeft="@drawable/ic_baseline_access_time_24"
+                android:layout_alignParentRight="true"
+                ></TextView>
+        </RelativeLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -50,14 +92,33 @@
             android:layout_height="wrap_content"
             android:id="@+id/res_breakfast"/>
 
-        <TextView
-            android:layout_width="wrap_content"
+         <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Mid Morning Snack"
-            android:textSize="24dp"
-            android:textStyle="bold"
-            android:textColor="#686B6C"
-            ></TextView>
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mid Morning Snack"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:id="@+id/mid_morning_title"
+                android:textColor="#686B6C">
+
+            </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_centerVertical="true"
+                android:textSize="15sp"
+                android:id="@+id/mid_time"
+                android:textColor="#000"
+                android:text="6 AM"
+                android:drawableLeft="@drawable/ic_baseline_access_time_24"
+                android:layout_alignParentRight="true"
+                ></TextView>
+        </RelativeLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -68,14 +129,34 @@
             android:layout_height="wrap_content"
             android:id="@+id/res_mid_mrng"/>
 
-        <TextView
-            android:layout_width="wrap_content"
+
+ <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Lunch"
-            android:textSize="24dp"
-            android:textStyle="bold"
-            android:textColor="#686B6C"
-            ></TextView>
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lunch"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:id="@+id/kunch_title"
+                android:textColor="#686B6C">
+
+            </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_centerVertical="true"
+                android:textSize="15sp"
+                android:id="@+id/lunch_time"
+                android:textColor="#000"
+                android:text="6 AM"
+                android:drawableLeft="@drawable/ic_baseline_access_time_24"
+                android:layout_alignParentRight="true"
+                ></TextView>
+        </RelativeLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -86,32 +167,36 @@
             android:layout_height="wrap_content"
 
             android:id="@+id/res_lunch"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Afternoon Snack"
-            android:textColor="#686B6C"
-            android:textSize="24dp"
-            android:textStyle="bold"
-            ></TextView>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
 
-            android:background="#000"></LinearLayout>
-        <androidx.recyclerview.widget.RecyclerView
+
+
+ <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/res_afternoon"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Evening Snack"
-            android:textSize="24dp"
-            android:textStyle="bold"
-            android:textColor="#686B6C"
-            ></TextView>
-        <LinearLayout
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Evening Snack"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:id="@+id/evening_title"
+                android:textColor="#686B6C">
+
+            </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_centerVertical="true"
+                android:textSize="15sp"
+                android:id="@+id/evening_time"
+                android:textColor="#000"
+                android:text="6 AM"
+                android:drawableLeft="@drawable/ic_baseline_access_time_24"
+                android:layout_alignParentRight="true"
+                ></TextView>
+        </RelativeLayout>        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="#000"></LinearLayout>
@@ -119,15 +204,33 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/res_evening"/>
-        <TextView
-            android:layout_width="wrap_content"
+ <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Dinner"
-            android:textColor="#686B6C"
-            android:textSize="24dp"
-            android:textStyle="bold"
-            ></TextView>
-        <LinearLayout
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dinner"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:id="@+id/dinner_title"
+                android:textColor="#686B6C">
+
+            </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_centerVertical="true"
+                android:textSize="15sp"
+                android:id="@+id/dinner_time"
+                android:textColor="#000"
+                android:text="6 AM"
+                android:drawableLeft="@drawable/ic_baseline_access_time_24"
+                android:layout_alignParentRight="true"
+                ></TextView>
+        </RelativeLayout>        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="#000"></LinearLayout>
@@ -136,14 +239,23 @@
             android:layout_height="wrap_content"
             android:id="@+id/res_dinner"/>
 
-        <TextView
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="If you are hungry"
-            android:textColor="#686B6C"
-            android:textSize="24dp"
-            android:textStyle="bold"
-            ></TextView>
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Water Intake"
+                android:textColor="#686B6C"
+                android:id="@+id/water_title"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                ></TextView>
+
+        </RelativeLayout>
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -152,6 +264,33 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/res_waterintake"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="If you are hungry"
+                android:textColor="#686B6C"
+                android:textSize="24dp"
+                android:id="@+id/hungry_title"
+                android:textStyle="bold"
+                ></TextView>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+
+            android:background="#000"></LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:id="@+id/res_afternoon"/>
 
     </LinearLayout>
 </ScrollView>

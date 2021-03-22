@@ -61,6 +61,16 @@
             />
 
         <TextView
+            android:id="@+id/metabolic"
+            android:padding="2dp"
+            android:background="@drawable/cell"
+            android:gravity="center"
+            android:layout_width="90dp"
+            android:textColor="#000"
+            android:layout_column="5"
+            />
+
+        <TextView
             android:id="@+id/bmi"
             android:padding="2dp"
             android:background="@drawable/cell"

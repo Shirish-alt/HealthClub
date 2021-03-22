@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
@@ -39,6 +40,7 @@ public class PreviousDiet extends Fragment {
  String access_token="",name,arrname=" ";
     WebView webView;
     String str;
+    TextView water_intake_time,hungry_time,early_time,breack_time,mid_morning_time,lunch_time,evening_time,dinner_time;
     List<DietModel> dietModels,dietModels1,dietModels2,dietModels3,dietModels4,dietModels5,dietModels6,dietModels7;
     RecyclerView res_brkfast,res_mid_mrng,res_lunch,res_afternoon,res_evening,res_dinner,res_prev_ifyouarehugery,res_prev_earluymorning;
 
@@ -59,6 +61,14 @@ public class PreviousDiet extends Fragment {
         res_dinner=view.findViewById(R.id.res_dinner);
         res_prev_ifyouarehugery=view.findViewById(R.id.res_prev_ifyouarehugery);
         res_prev_earluymorning=view.findViewById(R.id.res_prev_earlymorning);
+
+        early_time=view.findViewById(R.id.early_time);
+        breack_time=view.findViewById(R.id.break_time);
+        mid_morning_time=view.findViewById(R.id.mid_time);
+        lunch_time=view.findViewById(R.id.lunch_time);
+        evening_time=view.findViewById(R.id.evening_time);
+        dinner_time=view.findViewById(R.id.dinner_time);
+
 
 
 
@@ -150,6 +160,25 @@ public class PreviousDiet extends Fragment {
                             JSONObject objectdiet=object.getJSONObject("diet");
                             Log.e("Previous Diet",""+objectdiet);
 //                        JSONArray names=objectdiet.names();
+
+
+
+
+                            String early=objectdiet.getString("Early_Morning_time");
+                            String breaktime=objectdiet.getString("Breakfast_time");
+                            String mid=objectdiet.getString("Mid_Morning_Snack_time");
+                            String lunch=objectdiet.getString("lunch_time");
+                            String evening=objectdiet.getString("Evening_Snack_time");
+                            String dinner=objectdiet.getString("Dinner_time");
+
+
+
+                            early_time.setText(early);
+                            breack_time.setText(breaktime);
+                            mid_morning_time.setText(mid);
+                            lunch_time.setText(lunch);
+                            evening_time.setText(evening);
+                            dinner_time.setText(dinner);
 
 
 

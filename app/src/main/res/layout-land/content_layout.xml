@@ -503,9 +503,19 @@
                             android:layout_column="1"
                             />
                         <TextView
-                            android:text="Totalfat"
+                            android:text="Totalfat (%)"
                             android:textStyle="bold"
                             android:layout_width="90dp"
+                            android:padding="2dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:textColor="#fff"
+                            android:layout_column="1"
+                            />
+                        <TextView
+                            android:text="Metabolic Age"
+                            android:textStyle="bold"
+                            android:layout_width="110dp"
                             android:padding="2dp"
                             android:layout_weight="1"
                             android:gravity="center"

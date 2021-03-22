@@ -65,6 +65,7 @@ public class TableAdapter extends RecyclerView.Adapter<TableAdapter.TableHolder>
         }else {
             holder.bmi.setBackgroundResource(R.color.green);
         }
+        holder.metabolic.setText(model.getMetabolic());
 
 
 
@@ -84,7 +85,7 @@ public class TableAdapter extends RecyclerView.Adapter<TableAdapter.TableHolder>
 
     public  class TableHolder extends RecyclerView.ViewHolder{
 
-        TextView weight,vfat,tsf,totalfatpercent,bmi,bmr,musclepercent,date;
+        TextView weight,vfat,tsf,totalfatpercent,bmi,bmr,musclepercent,date,metabolic;
 
         public TableHolder(@NonNull View itemView) {
             super(itemView);
@@ -97,6 +98,7 @@ public class TableAdapter extends RecyclerView.Adapter<TableAdapter.TableHolder>
             musclepercent=itemView.findViewById(R.id.musclepercent);
 //            type=itemView.findViewById(R.id.type);
             date=itemView.findViewById(R.id.date);
+            metabolic=itemView.findViewById(R.id.metabolic);
         }
     }
 }

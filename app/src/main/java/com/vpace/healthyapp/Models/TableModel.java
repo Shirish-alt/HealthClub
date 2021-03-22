@@ -1,9 +1,9 @@
 package com.vpace.healthyapp.Models;
 
 public class TableModel {
-    String id,user_id,weight,vfat,tsf,totalfatpercent,bmi,bmr,musclepercent,type,date;
+    String id,user_id,weight,vfat,tsf,totalfatpercent,bmi,bmr,musclepercent,type,date,metabolic;
 
-    public TableModel(String id, String user_id, String weight, String vfat, String tsf, String totalfatpercent, String bmi, String bmr, String musclepercent, String type,String date) {
+    public TableModel(String id, String user_id, String weight, String vfat, String tsf, String totalfatpercent, String bmi, String bmr, String musclepercent, String type, String date, String metabolic) {
         this.id = id;
         this.user_id = user_id;
         this.weight = weight;
@@ -15,14 +15,7 @@ public class TableModel {
         this.musclepercent = musclepercent;
         this.type = type;
         this.date = date;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
+        this.metabolic = metabolic;
     }
 
     public String getId() {
@@ -103,5 +96,21 @@ public class TableModel {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getMetabolic() {
+        return metabolic;
+    }
+
+    public void setMetabolic(String metabolic) {
+        this.metabolic = metabolic;
     }
 }
